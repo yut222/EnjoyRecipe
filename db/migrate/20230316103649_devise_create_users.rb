@@ -34,7 +34,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
 
 
       # 下記追記
-      t.string :name, null: false
+      t.string :name, null: false  # 名前を追加するカラム
       t.string :avatar, null:false
       t.boolean :is_deleted, null: false, default: false
       # 下記新規登録用
