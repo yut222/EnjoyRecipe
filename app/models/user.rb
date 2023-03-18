@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+
+  # アソシエーション
   has_many :recipes, dependent: :destroy
   has_many :comments
 
@@ -38,6 +40,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable, :lockable, :timeoutable, :trackable  # 追記
 
+  # バリデーション
   def validate_name
     errors.add(:name, :invalid) if User.where(email: name).exists?
   end
@@ -71,7 +74,7 @@ class User < ApplicationRecord
     self.interests.exists?(consultation_id: consultation.id)
   end
 
-
+  # ゲストログイン
   def self.guest
     find_or_create_by!(name: 'guestuser' ,email: 'guest@example.com') do |user|
       o = [('a'..'z'), ('A'..'Z'), ('0'..'9')].map { |i| i.to_a }.flatten

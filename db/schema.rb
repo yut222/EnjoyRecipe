@@ -30,16 +30,9 @@ ActiveRecord::Schema.define(version: 2023_03_16_103649) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
-    t.string "name", null: false
-    t.string "avatar", null: false
+    t.string "name"
+    t.string "avatar"
     t.boolean "is_deleted", default: false, null: false
-    t.string "last_name", null: false
-    t.string "first_name", null: false
-    t.string "last_name_kana", null: false
-    t.string "first_name_kana", null: false
-    t.string "postal_code", null: false
-    t.string "address", null: false
-    t.string "telephone_number", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
