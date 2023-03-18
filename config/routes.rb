@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   # URL /users/sign_in ...
   devise_for :users
 
+  # guestログイン
   devise_scope :user do
     post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
   end
