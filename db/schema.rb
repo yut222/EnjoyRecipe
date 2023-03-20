@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_20_061116) do
+ActiveRecord::Schema.define(version: 2023_03_20_061329) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -71,6 +71,15 @@ ActiveRecord::Schema.define(version: 2023_03_20_061116) do
     t.index ["user_id"], name: "index_inventories_on_user_id"
   end
 
+  create_table "recipe_tag_relations", force: :cascade do |t|
+    t.integer "recipe_id", null: false
+    t.integer "tag_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["recipe_id"], name: "index_recipe_tag_relations_on_recipe_id"
+    t.index ["tag_id"], name: "index_recipe_tag_relations_on_tag_id"
+  end
+
   create_table "relationships", force: :cascade do |t|
     t.integer "follower_id"
     t.integer "followed_id"
@@ -116,4 +125,6 @@ ActiveRecord::Schema.define(version: 2023_03_20_061116) do
   add_foreign_key "comments", "recipes"
   add_foreign_key "comments", "users"
   add_foreign_key "inventories", "users"
+  add_foreign_key "recipe_tag_relations", "recipes"
+  add_foreign_key "recipe_tag_relations", "tags"
 end
