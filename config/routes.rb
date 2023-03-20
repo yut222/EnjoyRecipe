@@ -1,8 +1,16 @@
 Rails.application.routes.draw do
 
 
+  get 'inventories/edit'
+  get 'inventories/new'
+  get 'inventories/show'
+  get 'recipes/index'
+  get 'recipes/show'
+  get 'recipes/new'
+  get 'recipes/edit'
   get 'users/index'
   get 'users/show'
+
   root 'homes#index'
 
   get 'recipes/tweet', to: 'homes#tweet_index'
