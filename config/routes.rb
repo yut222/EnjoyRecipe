@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  get 'users/index'
+  get 'users/show'
   root 'homes#index'
 
   get 'recipes/tweet', to: 'homes#tweet_index'
