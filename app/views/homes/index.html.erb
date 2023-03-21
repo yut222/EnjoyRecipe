@@ -1,3 +1,39 @@
-<h1>楽しいクッキングライフを♪</h1>
+<main>
+  <%= render 'layouts/notifications' %>
+  <section class="introduction">
+      <div class="introduction__inner">
+        <div class="introduction__img">
+<!--画像を入れたら記述-->
+        </div>
+        <div class="introduction__texts">
+          <div class="introduction__texts-inner">
+            <div class="introduction__title main-title">
+              Enjoy Recipe!
+            </div>
+            <div class="introduction__sub sub-title">
+              楽しいクッキングライフを♪
+            </div>
+            <div class="introduction__description">
+              <p>一人暮らしの方<br>毎日の料理作りをサポートします。</p>
+              <p>あなたの望むレシピがきっと見つかります。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
 
 
+  <section class="list">
+    <div class="subheader">
+      <div>
+        <p class="main-title">New Arrival</p>
+        <p class="sub-title">新しいレシピを見つけよう</p>
+      </div>
+<!--レシピ投稿後-->
+    </div>
+    <%= render 'shared/recipe_list' %>
+  </section>
+
+
+
+</main>

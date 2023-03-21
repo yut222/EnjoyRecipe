@@ -1,0 +1,17 @@
+<section class="user">
+  <%= render 'show_user' %>
+</section>
+
+<%= render 'shared/flash' %>
+<section class="user-list">
+  <div class="subheader">
+    <div class="main-title">Favorite</div>
+  </div>
+
+  <% if @recipes.any? %>
+    <%= render 'shared/recipe_list' %>
+  <% else %>
+    <p class="notthing"><%= "#{@user.name}さんがいいねしたレシピはありません。" %></p>
+  <% end %>
+  <%= paginate @recipes %>
+</section>

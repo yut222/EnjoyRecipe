@@ -1,0 +1,23 @@
+<section class="login">
+  <div class="login__imgBx">
+    <%= image_tag 'introduction.jpg' %>
+  </div>
+  <div class="login__contentBx">
+    <div class="login__formBx">
+      <div class="login__title">退会お手続き</div>
+      <div class="withdrawal-content">
+        退会手続きをされますと、一部サービスがご利用いただけなくなります。<br>
+        <br>
+        本当に退会してよろしいですか？
+      </div>
+      <div class="login__inputBx">
+        <%= link_to "退会する", withdrawal_path, method: :patch, data: { confirm: "本当に退会しますか？" }, class: 'withdrawal' %>
+      </div>
+      <div class="login__inputBx">
+        <%= link_to "退会しない", user_path(current_user), class: 'withdrawal' %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<h2></h2>

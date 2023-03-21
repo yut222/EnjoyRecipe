@@ -1,2 +1,3 @@
-<h1>Inventories#new</h1>
-<p>Find me in app/views/inventories/new.html.erb</p>
+<%= render 'form', inventory: @inventory %>
+
+<div class="cancel"><%= link_to 'マイページに戻る', inventories_user_path(current_user.id), class:"btn cancel-btn"%></div>

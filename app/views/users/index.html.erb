@@ -1,2 +1,7 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<% @title = "ユーザー一覧" %>
+
+<section class="user-list">
+  <p class="cooking-title">ユーザー一覧</p>
+  <%= render 'shared/user-list' %>
+  <%= paginate @users %>
+</section>

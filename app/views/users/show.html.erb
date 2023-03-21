@@ -1,2 +1,16 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<section class="user">
+  <%= render 'shared/flash' %>
+  <%= render 'show_user' %>
+</section>
+
+<section class="list">
+  <div class="subheader">
+    <div class="main-title">Recipe</div>
+  </div>
+  <% if @recipes.any? %>
+    <%= render 'shared/recipe_list' %>
+  <% else %>
+    <p class="notthing"><%= "#{@user.name}さんの投稿はありません。" %></p>
+  <% end %>
+  <%= paginate @recipes %>
+</section>

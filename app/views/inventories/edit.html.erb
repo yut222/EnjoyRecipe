@@ -1,2 +1,3 @@
-<h1>Inventories#edit</h1>
-<p>Find me in app/views/inventories/edit.html.erb</p>
+<%= render 'form', inventory: @inventory %>
+
+<div class="cancel"><%= link_to '編集をやめる', inventories_user_path(current_user.id), class:"btn cancel-btn"%></div>

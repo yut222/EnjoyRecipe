@@ -1,2 +1,36 @@
-<h1>Inventories#show</h1>
-<p>Find me in app/views/inventories/show.html.erb</p>
+<div class="cooking-title">「<%= @inventory.name %>」について</div>
+<section class="inventory">
+  <div class="inventory__field">
+    <p class="inventory__label">食材画像</p>
+    <div class="inventory__detail">
+      <%= image_tag @inventory.image.url, class: "inventory__photo" %>
+    </div>
+  </div>
+  <div class="inventory__field">
+    <p class="inventory__label">食材名</p>
+    <p class="inventory__detail"><%= @inventory.name %></p>
+  </div>
+  <div class="inventory__field">
+    <p class="inventory__label">入力日</p>
+    <p class="inventory__detail"><%= @inventory.created_at.to_s(:datetime_jp)%></p>
+  </div>
+  <div class="inventory__field">
+    <p class="inventory__label">賞味期限</p>
+    <p class="inventory__detail"><%=  l(@inventory.expiration_date, format: :middle) %></p>
+  </div>
+  <div class="inventory__field">
+    <p class="inventory__label">数量</p>
+    <p class="inventory__detail"><%= @inventory.quantity %></p>
+  </div>
+  <div class="inventory__field">
+    <p class="inventory__label">メモ</p>
+    <% unless @inventory.memo.nil? %>
+      <p class="inventory__detail"><%= @inventory.memo %></p>
+    <% else %>
+      <p class="inventory__detail">登録されていません</p>
+    <% end %>
+  </div>
+  <div class="edit"><%= link_to '編集する', edit_inventory_path(id: @inventory.id),
+  class:"btn inventory-edit-btn" %></div>
+  <div class="cancel"><%= link_to 'マイページに戻る', inventories_user_path(current_user.id), class:"btn cancel-btn"%></div>
+</section>

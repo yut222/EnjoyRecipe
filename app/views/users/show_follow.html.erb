@@ -1,0 +1,12 @@
+<section class="user-list">
+  <div class="cooking-title"><%= @title %></div>
+
+  <% if @users.any? %>
+    <%= render 'shared/user-list' %>
+  <% else %>
+    <p class="notthing"><%= @message %></p>
+  <% end %>
+  <%= paginate @users %>
+
+  <div class="cancel"><%= link_to 'マイページに戻る', @user, class:"btn cancel-btn"%></div>
+</section>

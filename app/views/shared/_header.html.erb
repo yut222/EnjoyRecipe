@@ -1,0 +1,27 @@
+<header class="header">
+  <div class="header__inner">
+    <%= link_to root_path, class: 'logo' do %>
+      <%= image_tag 'EnjoyRecipe' %>
+    <% end %>
+    <nav class="header__nav">
+      <ul class="header__ul">
+        <% if user_signed_in? %>
+          <li class="header__li"><%= link_to 'マイページ', user_path(id: current_user.id) %></li>
+          <li class="header__li"><%= link_to 'タイムライン', recipes_tweet_path %></li>
+          <li class="header__li"><%= link_to 'レシピ一覧', recipes_path %></li>
+          <li class="header__li"><%= link_to 'ユーザー一覧', users_path %></li>
+          <li class="header__li"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li class="header__li"><%= link_to '新規登録', new_user_registration_path %></li>
+          <li class="header__li"><%= link_to 'ログイン', new_user_session_path %></li>
+          <li class="header__li"><%= link_to 'レシピ一覧', recipes_path %></li>
+        <% end %>
+      </ul>
+    </nav>
+    <button class="mobile-menu__btn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
