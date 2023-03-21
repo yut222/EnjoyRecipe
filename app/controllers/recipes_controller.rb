@@ -70,11 +70,11 @@ class RecipesController < ApplicationController
 
   def search
     if user_signed_in?
-      @recipes = @q.result(distinct: true).includes([:favorites]).page(params[:page]).per(6)
+      @recipes = @q.result(distinct: true).includes([:favorites]).page(params[:page]).per(6)  # 検索結果
     else
-      @recipes = @q.result(distinct: true).includes([:user]).page(params[:page]).per(6)
+      @recipes = @q.result(distinct: true).includes([:user]).page(params[:page]).per(6)  # 検索結果
     end
-    @search = params[:q][:title_or_ingredients_content_cont]
+    @search = params[:q][:title_or_ingredients_content_cont]  # 検索オブジェクト
   end
 
   def tag_search
@@ -89,7 +89,7 @@ class RecipesController < ApplicationController
   end
 
   def set_q
-    @q = Recipe.ransack(params[:q])  #ransack=>gem
+    @q = Recipe.ransack(params[:q])  #ransack=>gem  検索パラメーターが渡される params[:q]
   end
 
   # Only allow a list of trusted parameters through.
