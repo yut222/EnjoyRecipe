@@ -84,28 +84,28 @@ class RecipesController < ApplicationController
 
     private
 
-    def set_recipe
-      @recipe = Recipe.find(params[:id])
-    end
+  def set_recipe
+    @recipe = Recipe.find(params[:id])
+  end
 
-    def set_q
-      @q = Recipe.ransack(params[:q])
-    end
+  def set_q
+    @q = Recipe.ransack(params[:q])  #ransack=>gem
+  end
 
-    # Only allow a list of trusted parameters through.
-    def recipe_params
-      params.require(:recipe).permit(
-        :image,
-        :image_cache,
-        :remove_image,
-        :title,
-        :description,
-        :user_id,
-        :keyword,
-        tag_ids: [],
-        ingredients_attributes: [:id, :content, :quantity, :_destroy],
-        steps_attributes: [:id, :direction, :image, :_destroy]
-      )
-    end
+  # Only allow a list of trusted parameters through.
+  def recipe_params
+    params.require(:recipe).permit(
+      :image,
+      :image_cache,
+      :remove_image,
+      :title,
+      :description,
+      :user_id,
+      :keyword,
+      tag_ids: [],
+      ingredients_attributes: [:id, :content, :quantity, :_destroy],
+      steps_attributes: [:id, :direction, :image, :_destroy]
+    )
+  end
 
 end
