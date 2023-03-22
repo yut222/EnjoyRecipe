@@ -62,3 +62,6 @@ gem 'kaminari','~> 1.2.1'
 
 # 検索フォーム
 gem 'ransack'
+
+#画像アップロード
+gem 'carrierwave'
