@@ -72,3 +72,6 @@ gem 'mini_magick'
 # キーを環境変数化
 gem 'dotenv-rails'
 gem 'fog-aws'
+
+# PV数の実装
+gem 'impressionist', '~>1.6.1'
