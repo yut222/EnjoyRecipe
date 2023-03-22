@@ -75,3 +75,6 @@ gem 'fog-aws'
 
 # PV数の実装
 gem 'impressionist', '~>1.6.1'
+
+# 多言語化の導入
+gem 'rails-i18n', '~> 6.0.0'

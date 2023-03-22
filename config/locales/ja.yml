@@ -1,0 +1,39 @@
+ja:
+  date:
+    formats:
+      dafault: "%Y/%m/%d"
+      short: ! "%-m/%-d" #=> ex) 3/22
+      middle: ! "%-m月%-d日(%a)" #=> ex) 3月22日(水)
+      long: ! "%Y年%-m月%-d日(%a)" #=> ex) 2023年3月22日(水)
+
+  activerecord:
+    attributes:
+      recipe:
+        id: ID
+        description: レシピの説明
+        title: レシピのタイトル
+        created_at: 登録日時
+        updated_at: 更新日時
+        user_id: ユーザーID
+        remove_image: 画像を削除
+        image: レシピ画像
+      recipe/ingredients:
+        content: 材料名
+        quantity: 分量
+      recipe/steps:
+        direction: 手順
+        image: 手順の画像
+        remove_image: 画像を削除
+      comment:
+        name: 名前
+        content: コメント
+      inventory:
+        image: 食材画像
+
+  views:
+    pagination:
+      first: "&laquo; 最初"
+      last: "最後 &raquo;"
+      previous: "&lsaquo; 前"
+      next: "次 &rsaquo;"
+      truncate: "..."
