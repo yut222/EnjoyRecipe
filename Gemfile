@@ -68,3 +68,7 @@ gem 'carrierwave'
 
 #画像のリサイズ
 gem 'mini_magick'
+
+# キーを環境変数化
+gem 'dotenv-rails'
+gem 'fog-aws'
