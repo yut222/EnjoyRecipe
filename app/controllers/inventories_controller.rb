@@ -52,6 +52,7 @@ class InventoriesController < ApplicationController
     end
   end
 
+  #ストロングパラメーター
   def inventory_params
     params.require(:inventory).permit(:name, :quantity, :expiration_date, :memo, :user_id, :image)
   end
