@@ -58,6 +58,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 # deviseをdevise-i18nを使って多言語化
 gem 'devise-i18n'
+# devise用のbootstrapを追加
+gem 'devise-bootstrap-views', '~> 1.0'
 
 # ページネーション
 gem 'kaminari','~> 1.2.1'
@@ -80,3 +82,6 @@ gem 'impressionist', '~>1.6.1'
 
 # 多言語化の導入
 gem 'rails-i18n', '~> 6.0.0'
+
+# 各モデルのスキーマ情報をコメントとして書き出してくれる
+gem 'annotate'

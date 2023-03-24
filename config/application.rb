@@ -13,7 +13,7 @@ module EnjoyRecipe
     # 下記追記
     config.time_zone = 'Tokyo'
     config.active_record.default_timezone = :local
-    # デフォルトの言語設定
+    # デフォルトの言語設定 日本語
     config.i18n.default_locale = :ja
     config.add_autoload_paths_to_load_path = false
     config.autoload_paths += %W(#{config.root}/lib/validator)
