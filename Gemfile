@@ -91,3 +91,8 @@ gem 'font-awesome-sass'
 
 gem 'better_errors'  # デフォルトのエラー画面をわかりやすく整形
 gem 'binding_of_caller'  # better_errorsと一緒に使うことで、ブラウザ上でirbを使えるようになる
+
+# 書いたコードを良い書き方に指摘してくれる
+gem 'rubocop', require: false
+gem 'rubocop-performance', require: false
+gem 'rubocop-rails', require: false
