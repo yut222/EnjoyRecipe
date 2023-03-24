@@ -56,6 +56,8 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
+# deviseをdevise-i18nを使って多言語化
+gem 'devise-i18n'
 
 # ページネーション
 gem 'kaminari','~> 1.2.1'
