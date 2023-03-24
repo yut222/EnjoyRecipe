@@ -85,3 +85,6 @@ gem 'rails-i18n', '~> 6.0.0'
 
 # 各モデルのスキーマ情報をコメントとして書き出してくれる
 gem 'annotate'
+
+# アイコンを重ねて表示する
+gem 'font-awesome-sass'

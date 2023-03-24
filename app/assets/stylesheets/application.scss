@@ -13,3 +13,19 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap/scss/bootstrap";
+// FontAwesome
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+
+@import "modules/*";
+@import "breakpoints/base";
+@import "templates/*";
+
+@media (min-width: 600px) {
+  @import "breakpoints/600up";
+}
+
+@media (min-width: 960px) {
+  @import "breakpoints/960up";
+}
