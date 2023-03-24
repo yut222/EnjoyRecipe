@@ -88,3 +88,6 @@ gem 'annotate'
 
 # アイコンを重ねて表示する
 gem 'font-awesome-sass'
+
+gem 'better_errors'  # デフォルトのエラー画面をわかりやすく整形
+gem 'binding_of_caller'  # better_errorsと一緒に使うことで、ブラウザ上でirbを使えるようになる
