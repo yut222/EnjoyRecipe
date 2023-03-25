@@ -37,8 +37,8 @@ class User < ApplicationRecord
 
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable,
-         :confirmable, :lockable, :timeoutable, :trackable  # 追記
+         :recoverable, :rememberable, :validatable#,
+        # :confirmable, :lockable, :timeoutable, :trackable  # 追記
 
   # バリデーション
   def validate_name

@@ -1,9 +1,9 @@
 ja:
   activerecord:
     models:
-      inventory: 食材の在庫
+      inventory: "食材の在庫"
     attributes:
-        content: "コメント"
+      content: "コメント"
       inventory:
         photo: 食材画像
         name: 食材名

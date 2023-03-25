@@ -18,6 +18,7 @@ class Users::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   # def create
+  #   p "来てる"
   #   super
   # end
 

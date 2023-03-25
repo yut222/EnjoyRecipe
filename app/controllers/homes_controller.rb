@@ -3,8 +3,9 @@ class HomesController < ApplicationController
   def index
     if user_signed_in?
       @recipes = Recipe.includes([:favorites], [:user]).page(params[:page]).limit(3)
-    end
+    else
       @recipes = Recipe.includes([:user]).page(params[:page]).limit(3)
+    end
   end
 
   def tweet_index

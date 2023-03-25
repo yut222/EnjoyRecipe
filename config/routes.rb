@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   # URL /users/sign_in ...devise
   devise_for :users, controllers: {
     registrations: 'users/registrations',
+    sessions: 'users/sessions',
     passwords: 'users/passwords'
   }
 
