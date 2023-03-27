@@ -26,19 +26,19 @@
     font-weight: bold;
     letter-spacing: 1px;
     // color: $--c-dark-gray;
-    border-bottom: 1px solid $--c-light-gray;
+    border-bottom: 1px solid ;//$--c-light-gray;
   }
 
   &__item {
     @extend .mb-sm;
     padding: 5px 0;
-    border-bottom: 1px solid $--c-light-gray;
+    border-bottom: 1px solid ;//$--c-light-gray;
   }
 
   &__content {
     @extend .mb-sm;
     @extend .font-sm;
-    color: $--c-dark-gray;
+    // color: $--c-dark-gray;
     word-break: break-all;
   }
 

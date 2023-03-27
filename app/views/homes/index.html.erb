@@ -3,7 +3,7 @@
   <section class="introduction">
       <div class="introduction__inner">
         <div class="introduction__img">
-<!--画像を入れたら記述-->
+          <%= image_tag 'introduction.jpg' %>
         </div>
         <div class="introduction__texts">
           <div class="introduction__texts-inner">
@@ -29,7 +29,9 @@
         <p class="main-title">New Arrival</p>
         <p class="sub-title">新しいレシピを見つけよう</p>
       </div>
-<!--レシピ投稿後-->
+      <%= link_to recipes_path, class: "read_more-btn" do %>
+        <i class="fa-regular fa-circle-right" style="color: #000000;"></i>
+      <% end %>
     </div>
     <%= render 'shared/recipe_list' %>
   </section>

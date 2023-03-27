@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>EnjoyRecipe</title>
+    <title class="text-success">EnjoyRecipe</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -14,9 +14,10 @@
 
   <body>
 
-    <div id="global-container">
+    <div class="global-container">
 
       <div class="container">
+        <div id="wrapper">
         <div class="mobile-menu__cover"></div>
         <div class="nav-trigger"></div>
           <%= render 'shared/header' %>
