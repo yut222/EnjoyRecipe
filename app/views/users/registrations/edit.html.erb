@@ -1,6 +1,6 @@
 <section class="login">
   <div class="login__imgBx">
-    <%= image_tag 'introduction.jpg' %>
+    <%= image_tag 'introduction.jpg', size: "600x800" %>
   </div>
   <div class="login__contentBx">
     <div class="login__formBx">
@@ -10,7 +10,7 @@
           <%= f.label :avatar, class: "login__label" %>
           <div class="login__input-avatar">
             <label class="img-file">
-              <!--<%#= image_tag 'add_a_photo', class:"add-photo-btn"%>-->
+              <i class="fa-solid fa-camera" style="color: #000000;"></i>
               <%= f.file_field :avatar, accept: "image/jpeg,image/gif,image/png", class: "image" %>
             </label>
             <div class="preview login__preview"></div>
@@ -65,13 +65,12 @@
           <% end %>
         </div>
 
-        <div class="login__inputBx">
-          <%= f.submit "更新する" %>
-        </div>
 
-        <div class="login__inputBx">
-          <%= link_to "退会する", unsubscribe_user_path(@user), class: 'withdrawal' %>
-        </div>
+            <div class="col-md-12 px-sm-0 d-flex align-items-center justify-content-center">
+              <%= f.submit "更新する", class:"btn btn-success offset-4 mt-4" %>
+              <%= link_to "退会する", unsubscribe_user_path(@user), class: "withdrawal btn btn-danger ml-5 mt-4" %>
+            </div>
+
       <% end %>
     </div>
   </div>
