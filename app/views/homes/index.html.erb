@@ -1,41 +1,37 @@
 <main>
   <%= render 'layouts/notifications' %>
-  <section class="introduction">
-      <div class="introduction__inner">
-        <div class="introduction__img">
-          <%= image_tag 'introduction.jpg', size: "600x800" %>
-        </div>
-        <div class="introduction__texts">
-          <div class="introduction__texts-inner">
-            <div class="introduction__title main-title">
-              Enjoy Recipe!
-            </div>
-            <div class="introduction__sub sub-title">
-              楽しいクッキングライフを♪
-            </div>
-            <div class="introduction__description">
-              <p>一人暮らしの方<br>毎日の料理作りをサポートします。</p>
-              <p>あなたの望むレシピがきっと見つかります。</p>
-            </div>
-          </div>
-        </div>
+
+  <div class="container">
+    <div class="row my-4">
+
+      <div class="col-md-7 px-sm-0 d-flex">
+        <%= image_tag 'introduction.jpg', size: "600x800" %>
       </div>
-  </section>
 
+      <div class="col-md-5 px-sm-0 align-self-center">
+        <div class="text-center mt-2 mb-4">
+          <h3>Enjoy Recipe!</h3>
+        </div>
+        <p class="text-center">
+          楽しいクッキングライフを♪<br>
+          <br>
+          一人暮らしの方、料理が好きな方・苦手な方<br>毎日の料理作りをサポートします。<br><br>
+          あなたの望むレシピがきっと見つかります。<br>
+        </p>
+      </div>
 
-  <section class="list">
-    <div class="subheader">
-      <div>
-        <p class="main-title">New Arrival</p>
+      <div class="col-md-12 px-sm-0">
+        <div class="mt-4 mb-4">
+          <h3>New Arrival</h3>
+        </div>
         <p class="sub-title">新しいレシピを見つけよう</p>
+        <%= link_to recipes_path, class: "read_more-btn" do %>
+          <i class="fa-regular fa-circle-right" style="color: #000000;"></i>
+        <% end %>
       </div>
-      <%= link_to recipes_path, class: "read_more-btn" do %>
-        <i class="fa-regular fa-circle-right" style="color: #000000;"></i>
-      <% end %>
+
+      <%= render 'shared/recipe_list' %>
+
     </div>
-    <%= render 'shared/recipe_list' %>
-  </section>
-
-
-
+  </div>
 </main>
