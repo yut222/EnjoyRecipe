@@ -7,7 +7,6 @@
       <div class="description__img-field">
         <div class="cooking-title">写真</div>
           <label class="img-file">
-            <!--<%#= image_tag 'add_a_photo', class:"add-photo-btn"%>-->
             <i class="fa-solid fa-camera" style="color: #000000;"></i>
             <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png", class: "image" %>
           </label>
@@ -33,7 +32,7 @@
           <%= f.fields_for :ingredients do |ingredient| %>
             <%= render "ingredient_fields", f: ingredient %>
           <% end %>
-          <%= link_to_add_association "材料の追加", f, :ingredients %>
+          <!--<%#= link_to_add_association "材料の追加", f, :ingredients %>-->
 
         </section>
       </div>
@@ -59,11 +58,11 @@
       <%= f.fields_for :steps do |step| %>
         <%= render "step_fields", f: step %>
       <% end %>
-      <%= link_to_add_association "作り方の追加", f, :steps %>
+      <!--<%#= link_to_add_association "作り方の追加", f, :steps %>-->
     </div>
   </section>
 
-  <%= f.submit "送信する", class:"btn btn-success mt-4" %>
+  <%= f.submit "送信する", class:"btn btn-outline-success mt-4" %>
 
   <% end %>
 </main>
