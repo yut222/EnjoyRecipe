@@ -23,20 +23,27 @@
       </div>
       <div class="description__texts">
         <div class="cooking-title">レシピについて</div>
-        <div class="description__inputBx">
-          <%= f.text_field :title, placeholder: "タイトル(50文字以内)" %>
-          <%= f.text_area :description, placeholder: "サブタイトル(140字以内)" %>
-        </div>
-        <div class="cooking-title">材料</div>
-        <section class="ingredient">
-          <%= f.fields_for :ingredients do |ingredient| %>
-            <%= render "ingredient_fields", f: ingredient %>
-          <% end %>
-          <!--<%#= link_to_add_association "材料の追加", f, :ingredients %>-->
+          <div class="description__inputBx">
+            <%= f.text_field :title, placeholder: "タイトル(50文字以内)" %>
+            <%= f.text_area :description, placeholder: "サブタイトル(140字以内)" %>
+          </div>
 
-        </section>
+          <div class="cooking-title">材料</div>
+          <section class="ingredient">
+            <%= f.fields_for :ingredients do |ingredient| %>
+              <%= render "recipes/ingredient_fields", f: ingredient %>
+            <% end %>
+            <div id="detail-association-insertion-point"></div>  <!--追加ボタンを押した後、後に代入される--><!--link_to_add_association フォームの追加-->
+            <%= link_to_add_association "材料の追加", f, :ingredients,
+              class: "btn btn-secondary btn-block",
+              data: {
+              association_insertion_node: '#detail-association-insertion-point',
+              association_insertion_method: 'after'
+              }%>
+
+          </section>
+        </div>
       </div>
-    </div>
   </section>
 
   <div class="cooking-title">関連タグ</div>

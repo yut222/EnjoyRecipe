@@ -28,6 +28,9 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new(flash[:recipe])
+    # 材料追加関連
+    @ingredients = @recipe.ingredients.build ##親モデル.子モデル.buildで子モデルのインスタンス作成
+    @steps = @recipe.steps.build
   end
 
   def edit
