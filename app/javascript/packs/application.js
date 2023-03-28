@@ -27,5 +27,11 @@ require("scripts/vendors/scroll-polyfill")
 require("scripts/main")
 
 // coccon導入
+// require('jquery')
+// import "cocoon";
+
 require('jquery')
-import "cocoon";
+//= require rails-ujs
+//= require turbolinks
+//= require_tree .
+require ('cocoon')

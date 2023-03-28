@@ -33,7 +33,7 @@
           <%= f.fields_for :ingredients do |ingredient| %>
             <%= render "ingredient_fields", f: ingredient %>
           <% end %>
-          <!--<%#= link_to_add_fields "材料の追加", f, :ingredients %>-->
+          <%= link_to_add_association "材料の追加", f, :ingredients %>
 
         </section>
       </div>
@@ -59,7 +59,7 @@
       <%= f.fields_for :steps do |step| %>
         <%= render "step_fields", f: step %>
       <% end %>
-      <!--<%#= link_to_add_fields "作り方の追加", f, :steps %>-->
+      <%= link_to_add_association "作り方の追加", f, :steps %>
     </div>
   </section>
 
