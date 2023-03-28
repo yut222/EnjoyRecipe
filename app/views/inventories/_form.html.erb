@@ -7,12 +7,12 @@
       <%= f.label :image, class: "inventory__label" %>
       <div class="inventory__input-photo">
         <label class="img-file">
-          <%= image_tag 'add_a_photo', class:"add-photo-btn" %>
+          <i class="fa-solid fa-camera" style="color: #000000;"></i>
           <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png", class: "image" %>
         </label>
         <div class="preview inventory__preview"></div>
         <div class="inventory__photo">
-          <%= image_tag inventory.image.url, class: "set-img" %>
+          <%= image_tag inventory.image.url, class: "set-img", size: "150x150" %>
         </div>
       </div>
     </div>
@@ -32,6 +32,6 @@
       <%= f.label :memo, class: "inventory__label" %>
       <%= f.text_area :memo, class: "inventory__input-memo" %>
     </div>
-    <div class="submit"><%= f.button "送信する" , class:"btn slide-bg"%></div>
+    <div class="submit"><%= f.button "送信する" , class:"btn btn-success mt-3"%></div>
   </section>
 <% end %>

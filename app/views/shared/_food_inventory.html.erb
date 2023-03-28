@@ -2,19 +2,23 @@
   <div class="inventory__container">
     <% @inventories.each do |inventory| %>
       <div class="inventory__item">
-        <%= link_to image_tag(inventory.image.url), inventory_path(inventory.id), class: "inventory__photo" %>
+        <%= link_to image_tag(inventory.image.url), inventory_path(inventory.id), class: "inventory__photo", size: "150x150" %>  <!--食材画像-->
         <div class="inventory__info">
           <div class="inventory__name">
-            <%= link_to inventory.name, inventory_path(inventory.id) %>
+            <%= link_to inventory.name, inventory_path(inventory.id) %>  <!--食材名-->
           </div>
           <div class="inventory__content">
             <div class="inventory__expiration-date">
-              <span class="inventory__count"><%= inventory.days_left %></span>
+              <span class="inventory__count"><%= inventory.days_left %></span>  <!--賞味期限までの日数-->
             </div>
             <div class="inventory__quantity">
-              <span class="inventory__count"><%= inventory.quantity %></span>
+              <span class="inventory__count"><%= inventory.quantity %></span>  <!--在庫数-->
             </div>
-            <%= link_to image_tag('delete', alt: "Delete"), inventory_path(id: inventory.id), method: :delete, data: { confirm: '削除してよろしいですか？' } %>
+
+            <%= link_to inventory_path(id: inventory.id), method: :delete, data: { confirm: '削除してよろしいですか？' } do %>
+              <i class="fa-solid fa-trash-can" style="color: #000000;"></i>  <!--ゴミ箱-->
+            <% end %>
+
           </div>
         </div>
       </div>

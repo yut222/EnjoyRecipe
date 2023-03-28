@@ -13,7 +13,7 @@
           </label>
           <div class="preview description__preview"></div>
             <div class="description__img set-img">
-              <%= image_tag recipe.image.url %>
+              <%= image_tag recipe.image.url, size: "450x300" %>
             </div>
             <% unless current_page?(controller:"recipes", action: "new") %>
               <div class="description__remove-img-label">
@@ -63,6 +63,7 @@
     </div>
   </section>
 
-  <div class="submit"><%= f.button "送信する" , class:"btn slide-bg"%></div>
+  <%= f.submit "送信する", class:"btn btn-success mt-4" %>
+
   <% end %>
 </main>
