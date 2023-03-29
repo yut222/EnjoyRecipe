@@ -1,8 +1,13 @@
 <%= render 'shared/flash' %>
-<section class="list">
-  <div class="cooking-title">レシピ一覧</div>
+
+<div class="col-md-12 px-sm-0">
+  <div class="mt-4 mb-2">
+    <h3>レシピ一覧</h3>
+  </div>
+
   <%= render 'shared/recipe_search' %>
   <%= render 'shared/recipe_tag_list' %>
   <%= render 'shared/recipe_list' %>
   <%= paginate @recipes %>
-</section>
+
+</div>
