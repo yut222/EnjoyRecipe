@@ -1,31 +1,22 @@
 <div class="user__inner">
   <div class="user__info">
     <div class="user__img">
-      <!--<%#= image_tag @user.avatar.url %>-->
-      <!-- 画像 -->
-      <div class="col-md-1 offset-md-1">
-        <!--<%# if @user.avatar.image.attached? %>-->
-        <!--  <%#= image_tag @user.avatar.url, size: "300x180" %>-->
-        <!--<%# else %>-->
-        <!--  <%#= image_tag "no_image.jpg" %>-->
-        <!--<%# end %>-->
-      </div>
-
+      <%= image_tag @user.avatar.url, size: "150x150" %>  <!-- 画像 -->
     </div>
-    <div class="user__name"><%= @user.name %></div>
+    <div class="user__name"><%= user.name %></div>
     <div class="user__follow_stats">
-      <%= link_to(following_user_path(@user), class:'user__follow') do %>
+      <%= link_to(following_user_path(user), class:'user__follow') do %>
         <p>フォロー</p>
-        <p class="user__count" id="following"><%= @user.following.length %></p>
+        <p class="user__count" id="following"><%= user.following.length %></p>
       <% end %>
-      <%= link_to(followers_user_path(@user), class:'user__follow') do %>
+      <%= link_to(followers_user_path(user), class:'user__follow') do %>
         <p>フォロワー</p>
-        <div class="user__count" id="followers"><%= @user.followers.length %></div>
+        <div class="user__count" id="followers"><%= user.followers.length %></div>
       <% end %>
     </div>
   </div>
   <div class="user__follow-submit">
-    <%= render 'shared/user_submenu' if @user == current_user %>
+    <%= render 'shared/user_submenu' if user == current_user %>
     <div id="follow_form"><%= render 'follow_form' if user_signed_in? %></div>
   </div>
 </div>

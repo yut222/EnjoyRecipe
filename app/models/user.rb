@@ -33,7 +33,8 @@ class User < ApplicationRecord
 
   has_many :favorite_recipes, through: :favorites, source: :recipe
 
-  # mount_uploader :avatar, AvatarUploader
+  mount_uploader :avatar, AvaterUploader
+  # has_one_attached :image
 
   validates :name,
             presence: true,
