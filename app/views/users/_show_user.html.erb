@@ -2,6 +2,15 @@
   <div class="user__info">
     <div class="user__img">
       <!--<%#= image_tag @user.avatar.url %>-->
+      <!-- 画像 -->
+      <div class="col-md-1 offset-md-1">
+        <!--<%# if @user.avatar.image.attached? %>-->
+        <!--  <%#= image_tag @user.avatar.url, size: "300x180" %>-->
+        <!--<%# else %>-->
+        <!--  <%#= image_tag "no_image.jpg" %>-->
+        <!--<%# end %>-->
+      </div>
+
     </div>
     <div class="user__name"><%= @user.name %></div>
     <div class="user__follow_stats">

@@ -96,3 +96,5 @@ gem 'binding_of_caller'  # better_errorsと一緒に使うことで、ブラウ�
 gem 'rubocop', require: false
 gem 'rubocop-performance', require: false
 gem 'rubocop-rails', require: false
+
+gem 'cocoon'

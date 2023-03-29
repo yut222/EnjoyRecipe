@@ -34,7 +34,7 @@
               <%= render "recipes/ingredient_fields", f: ingredient %>
             <% end %>
             <div id="detail-association-insertion-point"></div>  <!--追加ボタンを押した後、後に代入される--><!--link_to_add_association フォームの追加-->
-            <%= link_to_add_association "材料の追加", f, :ingredients,
+              <%= link_to_add_association "材料の追加", f, :ingredients,
               class: "btn btn-secondary btn-block",
               data: {
               association_insertion_node: '#detail-association-insertion-point',
