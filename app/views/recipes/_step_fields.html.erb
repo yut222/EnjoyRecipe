@@ -4,9 +4,9 @@
     <p class="step__number"></p>
     <%= f.text_area :direction, class:"step__input"%>
     <div class="step__form-img">
-      <%= image_tag f.object.image.url %>
+      <%= image_tag f.object.image.url, size: "150x150" %>
     </div>
-    <%= link_to '#' , class: "remove-field-btn" do %>
+    <%= link_to_remove_association f, class: 'btn btn-default' do %>
       <!--<%#= image_tag 'delete', class: "js-remove_fields" %>-->
       <i class="fa-solid fa-trash-can" style="color: #000000;"></i>
     <% end %>
