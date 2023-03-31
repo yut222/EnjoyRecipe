@@ -40,19 +40,19 @@
         </div>
 
         <div class="cooking-title">材料</div>
-        <section class="ingredient">
+        <div class="form-group">
           <%= f.fields_for :ingredients do |ingredient| %>
             <%= render "recipes/ingredient_fields", f: ingredient %>
           <% end %>
 
           <div id="detail-association-insertion-point"></div> <!--追加ボタンを押した後、後に代入される--><!--link_to_add_association フォームの追加-->
           <%= link_to_add_association "材料の追加", f, :ingredients,
-          class: "text-white btn btn-warning btn-block",
+          class: "text-white btn btn-warning btn-block mr-2",
           data: {
           association_insertion_node: '#detail-association-insertion-point',
           association_insertion_method: 'before'
           }%>
-        </section>
+        </div>
       </div>
     </div>
 

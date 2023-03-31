@@ -1,7 +1,7 @@
-<div class="nested-fields">
+<div class="nested-fields mb-2">
   <%= f.hidden_field :_destroy %>
-  <div class="ingredient__inputBx">
-    <%= f.text_field :content, placeholder: "材料", class:"form-control"%>
+  <div class="ingredient__inputBx d-flex">
+    <%= f.text_field :content, placeholder: "材料", class:"form-control mr-2"%>
     <%= f.text_field :quantity, placeholder: "分量", class:"form-control" %>
 
     <%= link_to_remove_association f, class: 'btn btn-default' do %>
