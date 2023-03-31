@@ -2,9 +2,9 @@
   <%= f.hidden_field :_destroy %>
   <div class="step__inputBx">
     <p class="step__number"></p>
-    <%= f.text_area :direction, class:"step__input"%>
+    <%= f.text_area :direction, class:"form-control introduction"%>
     <div class="step__form-img">
-      <%= image_tag f.object.image.url, size: "150x150" %>
+      <%= image_tag f.object.image.url, size: "80x80" %>
     </div>
     <%= link_to_remove_association f, class: 'btn btn-default' do %>
       <!--<%#= image_tag 'delete', class: "js-remove_fields" %>-->
