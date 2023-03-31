@@ -1,14 +1,23 @@
 <%= link_to(user_path(@user), class:'user__tab') do %>
+  <div class="d-flex flex-col">
   <p>レシピ</p>
-  <p class="user__count"><%= @user.recipes.length %></p>
+  <%= @user.recipes.length %>
+  </div>
 <% end %>
+
 <%= link_to(favorites_user_path(@user), class:'user__tab') do %>
+<div class="d-flex flex-col">
   <p>いいね</p>
   <p class="user__count" id="following"><%= @user.favorites.length %></p>
+   </div>
 <% end %>
+
 <% if @user == current_user %>
   <%= link_to(inventories_user_path(@user), class:'user__tab') do %>
+  <div class="d-flex flex-col">
   <p>食材</p>
   <p class="user__count"><%= @user.inventories.length %></p>
+   </div>
   <% end %>
+
 <% end %>

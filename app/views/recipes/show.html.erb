@@ -4,7 +4,7 @@
     <div class="description__inner">
       <div class="description__img-field">
         <div class="description__img">
-          <%= image_tag @recipe.image.url %>
+          <%= image_tag @recipe.image.url, size: "300x300" %>
         </div>
       </div>
       <div class="description__texts">
@@ -26,7 +26,7 @@
             </div>
             <%= link_to @recipe.user.name, user_path(id: @recipe.user_id), class:"recipeuser__name" %>
             <% if user_signed_in? && @recipe.user == current_user %>
-              <%= link_to 'レシピ編集', edit_recipe_path, class:"btn recipe-edit-btn" %>
+              <%= link_to 'レシピ編集', edit_recipe_path, class:"btn btn-outline-success" %>
             <% end %>
           </div>
         </div>
