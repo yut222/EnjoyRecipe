@@ -4,16 +4,23 @@
       <%= image_tag user.avatar.url, size: "150x150" %>  <!-- 画像 -->
     </div>
     <div class="user__name"><%= user.name %></div>
-    <div class="user__follow_stats">
+
+    <div class="d-flex flex-row">
       <%= link_to(following_user_path(user), class:'user__follow') do %>
-        <p>フォロー</p>
-        <p class="user__count" id="following"><%= user.following.length %></p>
+        <div class="d-flex flex-row mr-4">
+          <p>フォロー</p>
+          <%= user.following.length %>
+        </div>
       <% end %>
       <%= link_to(followers_user_path(user), class:'user__follow') do %>
-        <p>フォロワー</p>
-        <div class="user__count" id="followers"><%= user.followers.length %></div>
+        <div class="d-flex flex-row">
+          <p>フォロワー</p>
+          <%= user.followers.length %>
+        </div>
       <% end %>
     </div>
+
+
   </div>
   <div class="user__follow-submit">
     <%= render 'shared/user_submenu' if user == current_user %>

@@ -7,7 +7,8 @@ class RecipesController < ApplicationController
 
   def index
     @title = "レシピ一覧"
-    @recipes = params[:tag_id].present? ? Tag.find(params[:tag_id]).recipes : Recipe
+    # 関連タグ
+    @recipes = params[:tag_id].present? ? Tag.find(params[:tag_id]).recipes : Recipe.all
 
     if user_signed_in?
       @recipes = @recipes.includes([:user], [:favorites]).page(params[:page]).per(6)
