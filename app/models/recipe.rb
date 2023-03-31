@@ -10,7 +10,7 @@ class Recipe < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   has_many :recipe_tag_relations, dependent: :delete_all, validate: false
-  has_many :tags, through: :recipe_tag_relations
+  has_many :tags, through: :recipe_tag_relations  #中間テーブルを介してtagモデルと関連付け
 
   has_many :favorites, dependent: :destroy
 
