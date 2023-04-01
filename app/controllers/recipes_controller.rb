@@ -47,6 +47,7 @@ class RecipesController < ApplicationController
     recipe = current_user.recipes.new(recipe_params)
 
     if recipe.save
+      recipe.create_tags(params[:recipe][:tag_ids])  # 関連タグ表示
       redirect_to recipe, flash: { notice: "「#{recipe.title}」のレシピを投稿しました。" }
     else
       redirect_to new_recipe_path, flash: {
@@ -59,6 +60,7 @@ class RecipesController < ApplicationController
   def update
     @recipe.update(recipe_params)
     if @recipe.save
+      @recipe.create_tags(params[:recipe][:tag_ids])  # 関連タグ表示
       redirect_to @recipe, flash: { notice: "「#{@recipe.title}」のレシピを更新しました。" }
     else
       flash[:recipe] = @recipe
@@ -106,7 +108,6 @@ class RecipesController < ApplicationController
       :description,
       :user_id,
       :keyword,
-      tag_ids: [],
       ingredients_attributes: [:id, :content, :quantity, :_destroy],
       steps_attributes: [:id, :direction, :image, :_destroy]
     )
