@@ -1,13 +1,13 @@
-<div class="nested-fields row my-4">
+<div class="nested-fields row my-4" style="width: 100% !important;">
   <%= f.hidden_field :_destroy %>
   <!--<div class="step__inputBx">-->
   <!--  <p class="step__number"></p>-->
 
-  <div class="form-group">
+  <div class="form-group" style="width: 80%;">
     <%= f.text_area :direction, class:"form-control introduction"%>
   </div>
 
-    <div class="step__form-img">
+    <div class="step__form-img" style="margin-left: 8%;">
       <%= image_tag f.object.image.url, size: "80x80" %>
     </div>
     <%= link_to_remove_association f, class: 'btn btn-default' do %>
