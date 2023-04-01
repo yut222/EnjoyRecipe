@@ -1,34 +1,36 @@
 <div class="container">
+
   <div class="row">
-      <%= image_tag user.avatar.url, size: "150x150" %>  <!-- 画像 -->
-    </div>
-    <div class="user__name"><%= user.name %></div>
+    <div class="col-md-6 text-center">
+      <%= image_tag user.avatar.url, size: "150x150" %>  <!-- いいねエラー -->
+      <div class="user__name"><%= user.name %></div>
 
-    <div class="d-flex flex-row">
-      <%= link_to(following_user_path(user), class:'user__follow') do %>
-        <div class="d-flex flex-row mr-4">
-          <p>フォロー</p>
-          <%= user.following.length %>
-        </div>
-      <% end %>
-      <%= link_to(followers_user_path(user), class:'user__follow') do %>
-        <div class="d-flex flex-row">
-          <p>フォロワー</p>
-          <%= user.followers.length %>
-        </div>
-      <% end %>
+      <div class="d-flex flex-row justify-content-center">
+        <%= link_to(following_user_path(user), class:'user__follow') do %>
+          <div class="d-flex flex-row mr-4">
+            <p>フォロー</p>
+            <%= user.following.length %>
+          </div>
+        <% end %>
+        <%= link_to(followers_user_path(user), class:'user__follow') do %>
+          <div class="d-flex flex-row">
+            <p>フォロワー</p>
+            <%= user.followers.length %>
+          </div>
+        <% end %>
+      </div>
     </div>
 
+    <div class="col-md-6 d-flex justify-content-center" style="align-items: center">
+      <div class="user__follow-submit">
+        <%= render 'shared/user_submenu' if user == current_user %>
+        <div id="follow_form"><%= render 'follow_form' if user_signed_in? %></div>
+      </div>
+    </div>
 
   </div>
-  <div class="user__follow-submit">
-    <%= render 'shared/user_submenu' if user == current_user %>
-    <div id="follow_form"><%= render 'follow_form' if user_signed_in? %></div>
-  </div>
-</div>
 
-<div class="container">
-  <div class="d-flex flex-row">
+  <div class="row">
     <%= render 'shared/stats' %>
   </div>
 </div>

@@ -26,7 +26,7 @@
           <section class="tag">
             <div class="tag__container">
               <% recipe.tags.each do |tag| %>
-                <%= render_with_tags(tag.name, tag.id) %>
+                <%= tag.name %>
               <% end %>
             </div>
           </section>
