@@ -10,6 +10,13 @@
   object-fit: cover;
 }
 
+// タイムライン
+.tweet__user-avatar,.tweet__img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
 // ボタンを茶色に
 .btn__color {
   background: #692927;
