@@ -13,8 +13,8 @@
             <div id="recipe_<%= recipe.id %>">
               <%= render partial: "recipes/favorite", locals: { recipe: recipe } %>
             </div>
-            <%= link_to user_path(id: recipe.user_id), class:'list__user-img' do %>
-              <%= image_tag recipe.user.avatar.url, size: "150x150" %>
+            <%= link_to user_path(id: recipe.user_id) do %>
+              <%= image_tag recipe.user.avatar.url, class:'list__user-img rounded-circle', size: "50x50" %>
             <% end %>
             <%= link_to recipe.user.name, user_path(id: recipe.user_id), class: "list__user-name" %>
           </div>

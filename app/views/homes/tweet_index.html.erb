@@ -10,38 +10,40 @@
 
       <% @tweet.each do |recipe| %>
         <div class="col-md-3">
-          <%= link_to image_tag(recipe.user.avatar.url, class:"tweet__user-avatar rounded-circle"), user_path(id: recipe.user_id) %>
+          <div class="tweet__info">
+            <%= link_to image_tag(recipe.user.avatar.url, class:"tweet__user-avatar rounded-circle"), user_path(id: recipe.user_id) %>
           <!--<div class="tweet__detail">-->
-            <div class="tweet__info">
-              <%= link_to recipe.user.name ,user_path(id: recipe.user_id), class:"tweet__user-name" %>
-              <span class="timestamp"><%= recipe.created_at.to_s(:short) %></span>
+            <%= link_to recipe.user.name ,user_path(id: recipe.user_id), class:"tweet__user-name" %>
+          </div>
+          <div class="tweet__info">
+            <span class="timestamp"><%= recipe.created_at.to_s(:short) %></span>
+          </div>
+          <%= link_to recipe.title, recipe_path(id: recipe.id), class: 'tweet__title' %>
+          <div class="tweet__description"><%= recipe.description %></div>
+
+          <%= link_to recipe_path(recipe) do %>
+            <div class="tweet__img">
+              <%= image_tag recipe.image.url, size: "250x250" %>
             </div>
-            <%= link_to recipe.title, recipe_path(id: recipe.id), class: 'tweet__title' %>
-            <div class="tweet__description"><%= recipe.description %></div>
+          <% end %>
 
-            <%= link_to recipe_path(recipe) do %>
-              <div class="tweet__img">
-                <%= image_tag recipe.image.url %>
-              </div>
-            <% end %>
-
-            <section class="tag">
-              <div class="tag__container">
-                <% recipe.tags.each do |tag| %>
-                  <%= tag.name %>
-                <% end %>
-              </div>
-            </section>
-
-            <div class="tweet__reaction">
-              <%= link_to recipe_path(id: recipe.id), class: "tweet__comment" do %>
-                <i class="far fa-comment"></i>
-                <span><%= recipe.comments.length %></span>
+          <section class="tag">
+            <div class="tag__container">
+              <% recipe.tags.each do |tag| %>
+                <%= tag.name %>
               <% end %>
-              <div id="recipe_<%= recipe.id %>" >
-                <%= render partial: "recipes/favorite", locals: { recipe: recipe } %>
-              </div>
             </div>
+          </section>
+
+          <div class="tweet__reaction">
+            <%= link_to recipe_path(id: recipe.id), class: "tweet__comment" do %>
+              <i class="far fa-comment"></i>
+              <span><%= recipe.comments.length %></span>
+            <% end %>
+            <div id="recipe_<%= recipe.id %>" >
+              <%= render partial: "recipes/favorite", locals: { recipe: recipe } %>
+            </div>
+          </div>
 
           <!--</div>-->
 
