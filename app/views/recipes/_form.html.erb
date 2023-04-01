@@ -22,7 +22,7 @@
               <%= f.check_box :remove_image %>
               <%= f.label :remove_image %>
             </div>
-        <% end %>
+          <% end %>
       </div>
 
 
@@ -44,7 +44,6 @@
           <%= f.fields_for :ingredients do |ingredient| %>
             <%= render "recipes/ingredient_fields", f: ingredient %>
           <% end %>
-
           <div id="detail-association-insertion-point"></div> <!--追加ボタンを押した後、後に代入される--><!--link_to_add_association フォームの追加-->
           <%= link_to_add_association "材料の追加", f, :ingredients,
           class: "text-white btn btn-warning btn-block mr-2",
@@ -71,11 +70,13 @@
       </div>
     </section>
 
+
     <div class="text-left mt-1 mb-3">
       <h3>作り方</h3>
     </div>
-    <section class="step">
-      <div class="field">
+    <!--<section class="step">-->
+    <!--  <div class="field">-->
+    <div class="form-group">
         <%= f.fields_for :steps do |step| %>
           <%= render "recipes/step_fields", f: step %>
         <% end %>
@@ -87,8 +88,10 @@
           association_insertion_node: '#detail-association-insertion-point_step',
           association_insertion_method: 'before'
           }%>
-      </div>
-    </section>
+    </div>
+    <!--  </div>-->
+    <!--</section>-->
+
 
     <%= f.submit "送信する", class:"btn btn-outline-success mt-4" %>
 
