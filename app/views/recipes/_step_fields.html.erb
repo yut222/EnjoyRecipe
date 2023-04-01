@@ -1,19 +1,22 @@
-<div class="nested-fields row my-4" style="width: 100% !important;">
+<div class="nested-fields row my-4" style="width: 100% !important; align-items: center">
   <%= f.hidden_field :_destroy %>
   <!--<div class="step__inputBx">-->
   <!--  <p class="step__number"></p>-->
 
-  <div class="form-group" style="width: 80%;">
+  <div class="step" style="width: 83%;">
     <%= f.text_area :direction, class:"form-control introduction"%>
   </div>
 
-    <div class="step__form-img" style="margin-left: 8%;">
+    <div class="step__form-img" style="margin-left: 3%;">
       <%= image_tag f.object.image.url, size: "80x80" %>
     </div>
-    <%= link_to_remove_association f, class: 'btn btn-default' do %>
-      <!--<%#= image_tag 'delete', class: "js-remove_fields" %>-->
-      <i class="fa-solid fa-trash-can" style="color: #000000;"></i>
-    <% end %>
+
+    <div class="step__form-img" style="margin-left: 1%;">
+      <%= link_to_remove_association f, class: 'btn btn-default' do %>
+        <!--<%#= image_tag 'delete', class: "js-remove_fields" %>-->
+        <i class="fa-solid fa-trash-can" style="color: #000000;"></i>
+      <% end %>
+    </div>
 
     <div class="step__file-input">
       <% if current_page?(controller:"recipes", action: "new") %>
@@ -23,5 +26,8 @@
       <% end %>
     </div>
 
-  </div>
+
+
+
+
 </div>

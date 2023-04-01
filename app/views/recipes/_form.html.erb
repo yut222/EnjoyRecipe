@@ -46,7 +46,7 @@
           <% end %>
           <div id="detail-association-insertion-point"></div> <!--追加ボタンを押した後、後に代入される--><!--link_to_add_association フォームの追加-->
           <%= link_to_add_association "材料の追加", f, :ingredients,
-          class: "text-white btn btn-warning btn-block mr-2",
+          class: "btn__color text-white btn btn-block mr-2",
           data: {
           association_insertion_node: '#detail-association-insertion-point',
           association_insertion_method: 'before'
@@ -71,7 +71,7 @@
     </section>
 
 
-    <div class="text-left mt-1 mb-3">
+    <div class="text-left mt-3 mb-3">
       <h3>作り方</h3>
     </div>
     <!--<section class="step">-->
@@ -83,8 +83,7 @@
 
         <div id="detail-association-insertion-point_step"></div>  <!--追加ボタンを押した後、後に代入される--><!--link_to_add_association フォームの追加-->
           <%= link_to_add_association "作り方の追加", f, :steps,
-          class: "text-white btn btn-warning btn-block",
-          style: "background: #800000",
+          class: "btn__color text-white btn btn-block",
           data: {
           association_insertion_node: '#detail-association-insertion-point_step',
           association_insertion_method: 'before'
