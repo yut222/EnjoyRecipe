@@ -8,7 +8,7 @@ class RecipesController < ApplicationController
   def index
     @title = "レシピ一覧"
     # 関連タグ
-    @recipes = params[:tag_id].present? ? Tag.find(params[:tag_id]).recipes : Recipe.all
+    @recipes = params[:tag_id].present? ? Tag.find(params[:tag_id]).recipes : Recipe
 
     if user_signed_in?
       @recipes = @recipes.includes([:user], [:favorites]).page(params[:page]).per(6)
@@ -76,9 +76,9 @@ class RecipesController < ApplicationController
 
   def search
     if user_signed_in?
-      @recipes = @q.result(distinct: true).includes([:favorites]).page(params[:page]).per(6)  # 検索結果
+      @recipes = @q.result(distinct: true).includes([:favorites]).page(params[:page]).per(6)  # resultにより検索結果を得られる
     else
-      @recipes = @q.result(distinct: true).includes([:user]).page(params[:page]).per(6)  # 検索結果
+      @recipes = @q.result(distinct: true).includes([:user]).page(params[:page]).per(6)  # resultにより検索結果を得られる
     end
     @search = params[:q][:title_or_ingredients_content_cont]  # 検索オブジェクト
   end
