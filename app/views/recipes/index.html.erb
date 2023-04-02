@@ -1,13 +1,19 @@
 <%= render 'shared/flash' %>
 
-<div class="col-md-12 px-sm-0">
-  <div class="mt-4 mb-2">
-    <h3>レシピ一覧</h3>
+<div class="container">
+  <div class="row">
+    <div class="px-sm-0 mt-4">
+      <h3>レシピ一覧</h3>
+    </div>
+
+    <div class="col-md-12 px-sm-0 mt-2">
+      <%= render 'shared/recipe_search' %>
+      <%= render 'shared/recipe_tag_list' %>
+      <%= render 'shared/recipe_list' %>
+    </div>
   </div>
 
-  <%= render 'shared/recipe_search' %>
-  <%= render 'shared/recipe_tag_list' %>
-  <%= render 'shared/recipe_list' %>
-  <%= paginate @recipes %>
-
+  <div class="col-md-12 justify-content-center d-flex">
+    <%= paginate @recipes %>
+  </div>
 </div>

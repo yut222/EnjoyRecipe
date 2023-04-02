@@ -1,20 +1,12 @@
 <form>
-  <div class="row">
-    <div class="col-md-8 mt-3">
-
-      <%= form_tag recipes_path do %>
-        <div class="tag__select tag__arrow width: 100px">
-          <%= select_tag :tag_id,
-                          options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]),
-                          {
-                            prompt: 'タグで絞り込み',
-                            class: 'tag__item',
-                            onchange: 'submit(this.form);'
-                          }
-          %>
-        </div>
-      <% end %>
-
-    </div>
-  </div>
+  <%= form_tag recipes_path do %>
+      <%= select_tag :tag_id,
+                      options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]),
+                      {
+                        prompt: 'タグで絞り込み',
+                        class: 'tag__item mt-2 mb-5',
+                        onchange: 'submit(this.form);'
+                      }
+      %>
+  <% end %>
 </form>

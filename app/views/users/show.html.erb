@@ -5,12 +5,16 @@
 
 <section class="list">
   <div class="subheader">
-    <div class="main-title">Recipe</div>
+    <div class="main-title mt-4 mb-4">
+      <h3>Recipe</h3>
+    </div>
   </div>
   <% if @recipes.any? %>
     <%= render 'shared/recipe_list' %>
   <% else %>
     <p class="notthing"><%= "#{@user.name}さんの投稿はありません。" %></p>
   <% end %>
-  <%= paginate @recipes %>
+  <div class="col-md-12 justify-content-center d-flex">
+    <%= paginate @recipes %>
+  </div>
 </section>

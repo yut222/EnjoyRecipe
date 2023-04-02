@@ -2,7 +2,7 @@
   <div class="row">
 
       <% @recipes.each do |recipe| %>
-        <div class="col-md-3">
+        <div class="col-md-3 mb-2">
           <%= link_to image_tag(recipe.image.url,class:"list__img"), recipe_path(recipe), class: "list__img" %>　<!--サイズ変更したい-->
           <div class="list__detail">
             <span class="timestamp"><%= recipe.created_at.to_s(:datetime_jp) %></span><br>

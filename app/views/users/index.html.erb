@@ -1,12 +1,16 @@
 <% @title = "ユーザ一覧" %>
 
-<div class="tweet__container">
-  <div class="col-md-12 px-sm-0">
-    <div class="mt-4 mb-4">
-      <h3>ユーザ一覧</h3>
-    </div>
+<div class="container">
+  <div class="px-sm-0 mt-4 mb-4">
+    <h3>ユーザ一覧</h3>
+  </div>
 
+  <div class="row px-sm-0">
     <%= render 'shared/user-list' %>
+  </div>
+
+  <div class="col-md-12 justify-content-center d-flex">
     <%= paginate @users %>
   </div>
+
 </div>

@@ -1,9 +1,14 @@
-<section class="inventory">
-  <div class="inventory__container">
+<!--<section class="inventory">-->
+<!--  <div class="inventory__container">-->
+
+<div class="container">
+  <div class="row">
+
     <% @inventories.each do |inventory| %>
-      <div class="inventory__item">
-        <%= link_to image_tag(inventory.image.url), inventory_path(inventory.id), class: "inventory__photo", size: "150x150" %>  <!--食材画像-->
-        <div class="inventory__info">
+      <!--<div class="inventory__item">-->
+      <div class="col-md-3 mb-2">
+        <%= link_to image_tag(inventory.image.url, class: "inventory__photo", size: "150x150"), inventory_path(inventory.id) %>  <!--食材画像-->
+        <!--<div class="inventory__info">-->
           <div class="inventory__name">
             <%= link_to inventory.name, inventory_path(inventory.id) %>  <!--食材名-->
           </div>
@@ -12,7 +17,7 @@
               <span class="inventory__count"><%= inventory.days_left %></span>  <!--賞味期限までの日数-->
             </div>
             <div class="inventory__quantity">
-              <span class="inventory__count"><%= inventory.quantity %></span>  <!--在庫数-->
+              <span class="inventory__count"><%= inventory.quantity %>個</span>  <!--在庫数-->
             </div>
 
             <%= link_to inventory_path(id: inventory.id), method: :delete, data: { confirm: '削除してよろしいですか？' } do %>
@@ -20,8 +25,9 @@
             <% end %>
 
           </div>
-        </div>
+        <!--</div>-->
       </div>
     <% end %>
   </div>
-</section>
+</div>
+<!--</section>-->
