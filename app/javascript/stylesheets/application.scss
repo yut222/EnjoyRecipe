@@ -19,8 +19,8 @@
 
 // タイムライン
 .tweet__user-avatar {
-  width: 80%;
-  height: 200px;
+  width: 80px;
+  height: 80px;
   object-fit: cover;
 }
 
@@ -32,4 +32,10 @@
 // ボタンを茶色に
 .btn__color {
   background: #692927;
+}
+
+.mypage__botton {
+  line-height: 30px;
+  height: 30px;
+  border-bottom: solid;
 }

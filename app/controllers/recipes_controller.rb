@@ -10,10 +10,16 @@ class RecipesController < ApplicationController
     # 関連タグ
     @recipes = params[:tag_id].present? ? Tag.find(params[:tag_id]).recipes : Recipe
 
-    if user_signed_in?
-      @recipes = @recipes.includes([:user], [:favorites]).page(params[:page]).per(6)
+
+    if params[:q]
+      @q = @recipes.ransack(params[:q])
+      search()
     else
-      @recipes = @recipes.includes([:user]).page(params[:page]).per(6)
+      if user_signed_in?
+         @recipes = @recipes.includes([:user], [:favorites]).page(params[:page]).per(6)
+      else
+        @recipes = @recipes.includes([:user]).page(params[:page]).per(6)
+      end
     end
   end
 

@@ -1,4 +1,4 @@
-<div class="col-md-4 justify-content-center d-flex">
+<div class="col-md-4 justify-content-center d-flex mypage__botton">
   <%= link_to(user_path(@user), class:'user__tab') do %>
     <div class="d-flex flex-col">
       <p class="mr-1">レシピ</p>
@@ -6,7 +6,7 @@
     </div>
   <% end %>
 </div>
-<div class="col-md-4 justify-content-center d-flex">
+<div class="col-md-4 justify-content-center d-flex mypage__botton">
   <%= link_to(favorites_user_path(@user), class:'user__tab') do %>
     <div class="d-flex flex-col">
       <p class="mr-1">いいね</p>
@@ -14,7 +14,7 @@
     </div>
   <% end %>
 </div>
-<div class="col-md-4 justify-content-center d-flex">
+<div class="col-md-4 justify-content-center d-flex mypage__botton">
   <% if @user == current_user %>
     <%= link_to(inventories_user_path(@user), class:'user__tab') do %>
       <div class="d-flex flex-col">
