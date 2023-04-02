@@ -15,5 +15,8 @@
   <% else %>
     <p class="notthing"><%= "#{@user.name}さんがいいねしたレシピはありません。" %></p>
   <% end %>
-  <%= paginate @recipes %>
+
+  <div class="col-md-12 justify-content-center d-flex">
+    <%= paginate @recipes %>
+  </div>
 </section>
