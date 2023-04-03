@@ -13,7 +13,7 @@
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {method: :patch}) do |f| %>
 
         <div class="form-group">
-          <%= f.label :avatar, class: "login__label" %>  <!--プロフィール画像-->
+          <%= f.label :avatar, class: "login__label" %><br>  <!--プロフィール画像-->
           <i class="fa-solid fa-camera" style="color: #000000;"></i>
           <%= f.file_field :avatar, accept: "image/jpeg,image/gif,image/png", class: "image" %>
 

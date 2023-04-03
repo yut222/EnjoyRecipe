@@ -15,8 +15,12 @@
   <% else %>
     <p class="notthing"><%= "保存中の食材はありません。" %></p>
   <% end %>
-  <%= paginate @inventories %>
 
+  <div class="col-md-12 justify-content-center d-flex">
+    <%= paginate @inventories %>
+  </div>
+
+  <br><br>  <!--<br>以外の方法はないのか？-->
   <%= link_to "食材を登録", new_inventory_path, class: "btn btn-outline-success mt-3" %>
 
 </section>

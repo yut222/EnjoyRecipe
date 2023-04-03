@@ -1,4 +1,4 @@
-<section class="favorite">
+<section class="favorite text-right">
   <% if user_signed_in? %>
     <% if current_user.already_favorited?(recipe) %>
       <%= link_to recipe_favorites_path(recipe), remote: true, method: :delete, class: "favorite__link" do %>
@@ -12,4 +12,10 @@
       <span class="favorite__count"><%= recipe.favorites.length %></span>
     <% end %>
   <% end %>
+
+  <%= link_to user_path(id: recipe.user_id) do %>
+    <%= image_tag recipe.user.avatar.url, class:'list__user-img rounded-circle' %>
+  <% end %>
+  <%= link_to recipe.user.name, user_path(id: recipe.user_id), class: "list__user-name" %>
+
 </section>

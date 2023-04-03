@@ -1,14 +1,9 @@
-<!--<section class="inventory">-->
-<!--  <div class="inventory__container">-->
-
 <div class="container">
   <div class="row">
 
     <% @inventories.each do |inventory| %>
-      <!--<div class="inventory__item">-->
       <div class="col-md-2 mb-2">
-        <%= link_to image_tag(inventory.image.url, class: "inventory__photo", size: "150x150"), inventory_path(inventory.id) %>  <!--食材画像-->
-        <!--<div class="inventory__info">-->
+        <%= link_to image_tag(inventory.image.url, class: "inventory__photo"), inventory_path(inventory.id) %>  <!--食材画像-->
           <div class="inventory__name">
             <%= link_to inventory.name, inventory_path(inventory.id) %>  <!--食材名-->
           </div>
@@ -25,9 +20,7 @@
             <% end %>
 
           </div>
-        <!--</div>-->
       </div>
     <% end %>
   </div>
 </div>
-<!--</section>-->
