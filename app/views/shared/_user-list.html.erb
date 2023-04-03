@@ -2,7 +2,7 @@
   <div class="col-md-3 mb-4">
     <%= link_to(user_path(id: user.id), class: "user-list__item") do %>
       <div class="user-list__img">
-        <%= image_tag user.avatar.url, class:'rounded-circle', size: "150x150" %>
+        <%= image_tag user.avatar.url, class:'user-list__img rounded-circle' %>
       </div>
       <div class="user-list__detail">
         <p class="user-list__name"><%= user.name %></p>

@@ -13,20 +13,16 @@
   </head>
 
   <body>
-
     <div class="global-container">
-
-      <div class="container">
-        <div id="wrapper">
+      <div id="wrapper">
         <div class="mobile-menu__cover"></div>
         <div class="nav-trigger"></div>
-          <%= render 'shared/header' %>
-          <div class="main-top">
-            <%= yield %>
-            <%= render 'shared/footer' %>
-          </div>
+        <%= render 'shared/header' %>
+        <div class="main-top">
+          <%= yield %>
+          <%= render 'shared/footer' %>
+        </div>
       </div>
     </div>
-
   </body>
 </html>

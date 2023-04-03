@@ -20,7 +20,9 @@
     <%= paginate @inventories %>
   </div>
 
-  <br><br>  <!--<br>以外の方法はないのか？-->
-  <%= link_to "食材を登録", new_inventory_path, class: "btn btn-outline-success mt-3" %>
+
+  <div class="mt-5 mb-3">
+    <%= link_to "食材を登録", new_inventory_path, class: "btn btn-outline-success mt-3" %>
+  </div>
 
 </section>
