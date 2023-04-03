@@ -10,6 +10,18 @@
   height: 100%;
 }
 
+// ユーザー画像
+.avatar__img {
+  width: 20%;
+  height: 20%;
+}
+
+//ユーザーフォロー
+.user__follow {
+  line-height: 30px;
+  height: 30px;
+}
+
 // ユーザー詳細
 .list__img {
   width: 100%;
@@ -46,4 +58,5 @@
   line-height: 30px;
   height: 30px;
   border-bottom: solid;
+  border-width:1px !important;
 }

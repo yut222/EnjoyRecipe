@@ -1,29 +1,25 @@
-<!--<section class="login">-->
 <div class="container">
-  <div class="row my-4">
+  <div class="row">
 
-    <div class="col-md-7 px-sm-0 d-flex">
-      <%= image_tag 'introduction.jpg', size: "600x800" %>
+    <div class="col-md-6 px-sm-0 d-flex">
+      <%= image_tag 'introduction.jpg', class: "introduction__img" %>
     </div>
 
     <div class="col-md-5 px-sm-0 align-self-center">
-      <div class="text-center mt-2 mb-5">
+      <div class="text-center mt-4 mb-3">
         <h3>アカウント編集</h3>
       </div>
 
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {method: :patch}) do |f| %>
 
-      <!--<div class="login__inputBx">-->
-      <!--<div class="col-md-12">-->
         <div class="form-group">
           <%= f.label :avatar, class: "login__label" %>  <!--プロフィール画像-->
-          <!--<div class="login__input-avatar">-->
           <i class="fa-solid fa-camera" style="color: #000000;"></i>
           <%= f.file_field :avatar, accept: "image/jpeg,image/gif,image/png", class: "image" %>
 
           <div class="preview login__preview"></div>
           <div class="login__avatar">
-            <!--<%#= image_tag resource.avatar.url, class: "set-img" %>-->
+            <%= image_tag resource.avatar.url, class: "avatar__img rounded-circle" %>
           </div>
 
           <% if @user.errors.include?(:avatar) %>

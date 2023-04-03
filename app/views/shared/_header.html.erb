@@ -16,36 +16,36 @@
         <% if user_signed_in? %>
           <div>
             <ul class="navbar-nav mx-auto">
-              <div class="text-end">
-                <%= link_to 'マイページ', user_path(id: current_user.id), class:"btn btn-outline-warning mr-2 mb-2" %>
+              <div class="text-end mr-2">
+                <%= link_to 'マイページ', user_path(id: current_user.id), class:"btn btn-outline-warning w-100 mb-2" %>
               </div>
-              <div class="text-end">
-                <%= link_to 'タイムライン', recipes_tweet_path, class:"btn btn-outline-warning mr-2 mb-2" %>
+              <div class="text-end mr-2">
+                <%= link_to 'タイムライン', recipes_tweet_path, class:"btn btn-outline-warning w-100 mb-2" %>
               </div>
-              <div class="text-end">
-                <%= link_to 'レシピ一覧', recipes_path, class:"btn btn-outline-warning mr-2 mb-2" %>
+              <div class="text-end mr-2">
+                <%= link_to 'レシピ一覧', recipes_path, class:"btn btn-outline-warning w-100 mb-2" %>
               </div>
-              <div class="text-end">
-                <%= link_to 'ユーザー一覧', users_path, class:"btn btn-outline-warning mr-2 mb-2" %>
+              <div class="text-end mr-2">
+                <%= link_to 'ユーザー一覧', users_path, class:"btn btn-outline-warning w-100 mb-2" %>
               </div>
-              <div class="text-end">
-                <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:"btn btn-outline-warning mr-2 mb-2" %>
+              <div class="text-end mr-2">
+                <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:"btn btn-outline-warning w-100 mb-2" %>
               </div>
             </ui>
 
         <% else %>
             <ul class="navbar-nav">
-              <div class="text-end">
-                <%= link_to '新規登録', new_user_registration_path, class:"btn btn-outline-warning mr-2 mb-2" %>
+              <div class="text-end mr-2">
+                <%= link_to '新規登録', new_user_registration_path, class:"btn btn-outline-warning w-100 mb-2" %>
               </div>
-              <div class="text-end">
-                <%= link_to 'ログイン', new_user_session_path, class:"btn btn-outline-warning mr-2 mb-2" %>
+              <div class="text-end mr-2">
+                <%= link_to 'ログイン', new_user_session_path, class:"btn btn-outline-warning w-100 mb-2" %>
               </div>
-              <div class="text-end">
-                <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class:"btn btn-outline-warning mr-2 mb-2" %>
+              <div class="text-end mr-2">
+                <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class:"btn btn-outline-warning w-100 mb-2" %>
               </div>
-              <div class="text-end">
-                <%= link_to 'レシピ一覧', recipes_path, class:"btn btn-outline-warning mr-2 mb-2" %>
+              <div class="text-end mr-2">
+                <%= link_to 'レシピ一覧', recipes_path, class:"btn btn-outline-warning w-100 mb-2" %>
               </div>
             </ul>
           </div>
