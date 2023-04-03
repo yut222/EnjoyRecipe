@@ -1,13 +1,27 @@
-<h2>パスワードの再設定</h2>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<section class="login">
+  <div class="login__imgBx">
+    <%= image_tag 'introduction.jpg' %>
   </div>
+  <div class="login__contentBx">
+    <div class="login__formBx">
+      <h2>パスワードの再設定</h2>
+      <%= render 'layouts/notifications' %>
+      <%= form_with model: @user, url: user_password_path, local: true do |f| %>
 
-<% end %>
+      <div class="login__inputBx">
+        <%= f.label :email, {class: 'login__label'} %>
+        <%= f.email_field :email,
+                          autofocus: true,
+                          required: true,
+                          maxlength: '100'%>
+      </div>
 
-<%= render "devise/shared/links" %>
+      <div class="login__inputBx">
+        <%= f.submit "再設定方法を送信" %>
+      </div>
+    <% end %>
+    <%= render 'devise/shared/links' %>
+    </div>
+  </div>
+</section>

@@ -1,50 +1,57 @@
-<section class="login">
-  <div class="login__imgBx">
-    <%= image_tag 'introduction.jpg', size: "600x800" %>
-  </div>
-  <div class="login__contentBx">
-    <div class="login__formBx">
-      <div class="login__title">アカウント編集</div>
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {method: :put}) do |f| %>
-        <div class="login__inputBx">
-          <%= f.label :avatar, class: "login__label" %>
-          <div class="login__input-avatar">
-            <label class="img-file">
-              <%= image_tag 'add_a_photo', class:"add-photo-btn"%>
-              <%= f.file_field :avatar, accept: "image/jpeg,image/gif,image/png", class: "image" %>
-            </label>
-            <div class="preview login__preview"></div>
-            <div class="login__avatar">
-              <%= image_tag resource.avatar.url, class: "set-img" %>
-            </div>
-          </div>
-        </div>
-        <% if @user.errors.include?(:avatar) %>
-          <p class="login__form-error"><%= @user.errors.full_messages_for(:avatar).first %>
-        <% end %>
+<!--<section class="login">-->
+<div class="container">
+  <div class="row my-4">
 
-        <div class="login__inputBx">
+    <div class="col-md-7 px-sm-0 d-flex">
+      <%= image_tag 'introduction.jpg', size: "600x800" %>
+    </div>
+
+    <div class="col-md-5 px-sm-0 align-self-center">
+      <div class="text-center mt-2 mb-5">
+        <h3>アカウント編集</h3>
+      </div>
+
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {method: :patch}) do |f| %>
+
+      <!--<div class="login__inputBx">-->
+      <!--<div class="col-md-12">-->
+        <div class="form-group">
+          <%= f.label :avatar, class: "login__label" %>  <!--プロフィール画像-->
+          <!--<div class="login__input-avatar">-->
+          <i class="fa-solid fa-camera" style="color: #000000;"></i>
+          <%= f.file_field :avatar, accept: "image/jpeg,image/gif,image/png", class: "image" %>
+
+          <div class="preview login__preview"></div>
+          <div class="login__avatar">
+            <!--<%#= image_tag resource.avatar.url, class: "set-img" %>-->
+          </div>
+
+          <% if @user.errors.include?(:avatar) %>
+            <p class="login__form-error"><%= @user.errors.full_messages_for(:avatar).first %>
+          <% end %>
+        </div>
+
+        <div class="form-group">
           <%= f.label :name, {class: 'login__label'} %>
-          <%= f.text_field :name, maxlength: '50' %>
+          <%#= f.label :name, {class: 'login__label'} %>
+          <%#= f.text_field :name, maxlength: '50' %>
+          <%= f.text_field :name, maxlength: '50', class:"form-control" %>
           <% if @user.errors.include?(:name) %>
             <p class="login__form-error"><%= @user.errors.full_messages_for(:name).first %>
           <% end %>
         </div>
-        <div class="login__inputBx">
+
+        <div class="form-group">
           <%= f.label :email, {class: 'login__label'} %>
-          <%= f.email_field :email, maxlength: '100 '%>
+          <%= f.email_field :email, maxlength: '100', class:"form-control" %>
           <% if @user.errors.include?(:email) %>
             <p class="login__form-error"><%= @user.errors.full_messages_for(:email).first %>
           <% end %>
         </div>
 
-        <div class="login__inputBx">
+        <div class="form-group">
           <%= f.label :password, {class: 'login__label'} %>
-          <%= f.password_field :password,
-                                autocomplete: "off",
-                                minlength: @minimum_password_length,
-                                maxlength: '20'
-          %>
+          <%= f.password_field :password, autocomplete: "off", minlength: @minimum_password_length, maxlength: '20', class:"form-control" %>
           <% if @minimum_password_length %>
             <small class="form-text text-muted"><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></small>
           <% end %>
@@ -53,26 +60,20 @@
           <% end %>
         </div>
 
-        <div class="login__inputBx">
+        <div class="form-group">
           <%= f.label :password_confirmation, {class: 'login__label'} %>
-          <%= f.password_field :password_confirmation,
-                                autocomplete: "off",
-                                minlength: @minimum_password_length,
-                                maxlength: '20'
-          %>
+          <%= f.password_field :password_confirmation, autocomplete: "off", minlength: @minimum_password_length, maxlength: '20', class:"form-control" %>
           <% if @user.errors.include?(:password_confirmation) %>
             <p class="login__form-error"><%= @user.errors.full_messages_for(:password_confirmation).first %>
           <% end %>
         </div>
 
-        <div class="login__inputBx">
-          <%= f.submit "更新する" %>
+        <div class="col-md-12 px-sm-0 d-flex justify-content-center">
+          <%= f.submit "更新する", class:"btn btn-outline-success mt-4" %>
+          <%= link_to "退会する", unsubscribe_user_path(@user), class: "withdrawal btn btn-outline-danger ml-5 mt-4" %>
         </div>
-
-        <div class="login__inputBx">
-          <%= link_to "退会する", unsubscribe_user_path(@user), class: 'withdrawal' %>
-        </div>
+    </div>
       <% end %>
     </div>
   </div>
-</section>
+<!--</section>-->
