@@ -3,13 +3,15 @@
 
     <% @inventories.each do |inventory| %>
       <div class="col-md-2 mb-2">
+        <div class="justify-content-center">
         <%= link_to image_tag(inventory.image.url, class: "inventory__photo"), inventory_path(inventory.id) %>  <!--食材画像-->
+        </div>
           <div class="inventory__name">
             <%= link_to inventory.name, inventory_path(inventory.id) %>  <!--食材名-->
           </div>
           <div class="inventory__content d-flex">
             <div class="inventory__expiration-date">
-              <span class="inventory__count mr-3"><%= inventory.days_left %></span>  <!--賞味期限までの日数-->
+              <span class="inventory__count mr-4"><%= inventory.days_left %></span>  <!--賞味期限までの日数-->
             </div>
             <div class="inventory__quantity mr-4">
               <span class="inventory__count"><%= inventory.quantity %>個</span>  <!--在庫数-->
