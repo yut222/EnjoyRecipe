@@ -1,58 +1,66 @@
 <%= render 'shared/flash' %>
 
-    <h3>保存中の食材登録フォーム</h3>
+<h3>保存中の食材登録フォーム</h3>
 
-<div class="container">
-  <div class="row">
+<div class="row">
+  <div class="offset-md-3 col-md-6">
     <%= form_with model: @inventory do |f| %>
 
-<div class="col-md-12 d-flex justify-content-center mb-4">
-        <!--<div class="inventory__field">-->
-          <%= f.label :image, class: "inventory__label mr-3" %>
-          <!--<div class="inventory__input-photo">-->
-          <!--  <label class="img-file">-->
-              <i class="fa-solid fa-camera mr-2" style="color: #000000;"></i>
-              <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png", class: "image" %>
-            <!--</label>-->
-            <!--<div class="preview inventory__preview"></div>-->
-            <!--<div class="inventory__photo">-->
-              <%= image_tag inventory.image.url, class: "inventory__img" %>
-          <!--  </div>-->
-          <!--</div>-->
+      <div class="form-group">
+          <!--<div class="inventory__field">-->
+            <%= f.label :image, class: "inventory__label mr-3 d-inline" do %>
+            <!--<div class="inventory__input-photo">-->
+            <!--  <label class="img-file">-->
+                <i class="fa-solid fa-camera mr-2" style="color: #000000;"></i>aaaaaa
+                <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png", class: "hidden_file_field" %>
+            <% end %>
+              <!--</label>-->
+              <!--<div class="preview inventory__preview"></div>-->
+              <!--<div class="inventory__photo">-->
+            <%= image_tag inventory.image.url, class: "inventory__img img-fluid d-inline" %>
+            <!--  </div>-->
+            <!--</div>-->
+      </div>
+
+      <!--<div class="col-md-12 d-flex justify-content-center mb-4">-->
+          <!--<div class="inventory__field">-->
+  <!--<form class="form-inline">-->
+  <!--<div class="col-md-12 d-flex justify-content-center mb-4">-->
+
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class:"form-control" %>
+      </div>
+
+      <!--<div class="inventory__field">-->
+      <div class="form-group">
+        <%= f.label :quantity %>
+        <%= f.text_field :quantity, class: "form-control" %>
+      </div>
+      <!--<div class="inventory__field inventory__date-select">-->
+      <div class="form-group">
+        <%= f.label :expiration_date, class: "text-center" %>
+        <%= f.date_field :expiration_date, class: "form-control" %>
+      </div>
+      <!--<div class="inventory__field">-->
+      <div class="form-group">
+        <%= f.label :memo %>
+        <%= f.text_area :memo, class: "form-control inventory__input-memo" %>
+      </div>
+
+
+  <!--</form>-->
+
+      <div class="form-group">
+        <%= f.button "送信する" , class:"btn btn-outline-success btn-block mt-4" %>
+      </div>
+    <% end %>
+  </div>
 </div>
 
 
-        <!--<div class="inventory__field">-->
-<!--<form class="form-inline">-->
-<!--<div class="col-md-12 d-flex justify-content-center mb-4">-->
-        <div class="form-group recipelist__flex col-md-4">
-          <%= f.label :name %>
-          <%= f.text_field :name, class:"form-control col-md-4" %>
-        </div>
-<!--</div>-->
-        <!--<div class="inventory__field">-->
-        <div class="form-group">
-          <%= f.label :quantity %>
-          <%= f.text_field :quantity, class: "form-control" %>
-        </div>
-        <!--<div class="inventory__field inventory__date-select">-->
-        <div class="form-group">
-          <%= f.label :expiration_date, class: "text-center" %>
-          <%= f.date_field :expiration_date, class: "form-control" %>
-        </div>
-        <!--<div class="inventory__field">-->
-        <div class="form-group">
-          <%= f.label :memo %>
-          <%= f.text_area :memo, class: "form-control inventory__input-memo" %>
-        </div>
-
-
-<!--</form>-->
-
-        <div class="submit">
-          <%= f.button "送信する" , class:"btn btn-outline-success col-md-2 mt-3" %>
-          </div>
-
-    <% end %>
-
-</div></div>
+<style>
+  .hidden_file_field {
+    display: none;
+  }
+</style>
