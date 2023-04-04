@@ -4,7 +4,7 @@
     <div class="col-md-5 px-sm-0 d-flex">
       <%= image_tag 'introduction.jpg', class: "introduction__img" %>
     </div>
-<div class="col-md-1"></div>
+    <div class="col-md-1"></div>  <!--隙間を入れるため？-->
     <div class="col-md-5 px-sm-0 align-self-center">
       <div class="text-center mt-4 mb-3">
         <h3>ログイン</h3>
@@ -13,7 +13,6 @@
       <%= render 'shared/flash' %>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-        <!--<div class="login__inputBx">-->
         <div class="form-group">
           <%= f.label :email, {class: 'login__label'} %>
           <%= f.email_field :email, autofocus: true, maxlength: '100', class:"form-control" %>

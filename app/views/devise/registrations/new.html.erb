@@ -1,12 +1,10 @@
-<!--<section class="login">-->
-<!--  <div class="login__imgBx">-->
 <div class="container">
   <div class="row">
 
-    <div class="col-md-6 px-sm-0 d-flex">
+    <div class="col-md-5 px-sm-0 d-flex">
       <%= image_tag 'introduction.jpg', class: "introduction__img" %>
     </div>
-
+    <div class="col-md-1"></div>  <!--隙間を入れるため？-->
     <div class="col-md-5 px-sm-0 align-self-center">
       <div class="text-center mt-4 mb-3">
         <h3>新規登録</h3>
@@ -14,20 +12,16 @@
 
       <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
 
-        <!--<div class="login__inputBx">-->
         <div class="form-group">
           <%= f.label :name, {class: 'login__label'} %>
-          <%#= f.text_field :name, maxlength: '50' %>
           <%= f.text_field :name, maxlength: '50', class:"form-control" %>
           <% if @user.errors.include?(:name) %>
             <p class="login__form-error"><%= @user.errors.full_messages_for(:name).first %>
           <% end %>
         </div>
 
-        <!--<div class="login__inputBx">-->
         <div class="form-group">
           <%= f.label :email, {class: 'login__label'} %>
-          <%#= f.email_field :email, maxlength: '100 '%>
           <%= f.email_field :email, maxlength: '100', class:"form-control" %>
           <% if @user.errors.include?(:email) %>
             <p class="login__form-error"><%= @user.errors.full_messages_for(:email).first %>
@@ -53,7 +47,6 @@
           <% end %>
         </div>
 
-        <!--<div class="login__inputBx">-->
         <div class="col-md-12 px-sm-0 d-flex justify-content-center">
           <%= f.submit "新規登録", class:"btn btn-outline-success mt-4 mb-3 w-50" %>
         </div>
