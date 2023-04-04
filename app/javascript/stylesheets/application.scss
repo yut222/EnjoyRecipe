@@ -56,8 +56,15 @@
 
 // ユーザ一覧
 .user-list__img {
-  width: 100%;
-  height: 90%;
+  width: 30%;
+  height: 30%;
+}
+
+// ユーザ一覧
+.recipelist__flex {
+  display:flex;  /* flexbox */
+  justify-content: center;  /* 水平方向 */
+  align-items: center;  /* 垂直方向 */
 }
 
 // タグで絞り込み
@@ -78,6 +85,7 @@
   border-bottom: solid;
   border-width:1px !important;
 }
+
 
 // ヘッダー
 a.btn:hover {
