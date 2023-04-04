@@ -3,11 +3,11 @@
     <%= link_to(user_path(id: user.id), class: "user-list__item") do %>
       <div class="card">
         <div class="recipelist__flex">
-          <%= image_tag user.avatar.url, class:'user-list__img rounded-circle' %>  <!--ユーザー画像-->
+          <%= image_tag user.avatar.url, class:'user-list__img rounded-circle mt-3 mb-3 ml-3' %>  <!--ユーザー画像-->
           <div class="card-body">
             <div class="user-list__detail">
-              <p class="user-list__name"><%= user.name %></p>  <!--ユーザー名-->
-              <p class="user-list__count">レシピ投稿数: <%= user.recipes.length %></p>  <!--レシピ投稿数-->
+              <div class="user-list__name"><%= user.name %></div>  <!--ユーザー名-->
+              <div class="user-list__count">レシピ投稿数: <%= user.recipes.length %></div>  <!--レシピ投稿数-->
             </div>
           </div>
         </div>

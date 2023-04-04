@@ -1,3 +1,7 @@
-<%= render 'form', inventory: @inventory %>
+<div class="container">
 
-<div class="cancel"><%= link_to 'マイページに戻る', inventories_user_path(current_user.id), class:"btn btn-outline-primary mt-3"%></div>
+  <%= render 'form', inventory: @inventory %>
+
+  <div class="cancel"><%= link_to 'マイページに戻る', inventories_user_path(current_user.id), class:"btn btn-outline-primary col-md-2 mt-3" %></div>
+
+</div>

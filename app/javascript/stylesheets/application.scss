@@ -10,6 +10,12 @@
   height: 100%;
 }
 
+// 在庫一覧  // 上と統合したい
+.inventory__photo {
+  width: 100%;
+  height: 100%;
+}
+
 //ログイン・新規登録・ユーザ編集のトップ背景色
 .login__background {
   background: #EDFFDD;
@@ -40,12 +46,13 @@
   height: 12%;
 }
 
-// 在庫
-.inventory__photo {
-  width: 100%;
-  height: 100%;
+// 在庫登録
+.inventory__img {
+  width: 30%;
+  height: 30%;
   object-fit: cover;
 }
+
 
 // タイムライン
 .tweet__user-avatar {
