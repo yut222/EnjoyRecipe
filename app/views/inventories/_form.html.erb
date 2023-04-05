@@ -7,11 +7,11 @@
     <%= form_with model: @inventory do |f| %>
 
       <div class="form-group">
-            <%= f.label :image, class: "inventory__label mr-3 d-inline" do %>
-                <i class="fa-solid fa-camera mr-2" style="color: #000000;"></i>食材画像
-                <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png", class: "hidden_file_field" %>
-            <% end %>
-            <%= image_tag inventory.image.url, class: "inventory__img img-fluid d-inline" %>
+        <%= f.label :image, class: "inventory__label mr-3 d-inline" do %>
+            <i class="fa-solid fa-camera mr-2" style="color: #000000;"></i>食材画像
+            <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png", class: "hidden_file_field" %>
+        <% end %>
+        <%= image_tag inventory.image.url, class: "inventory__img img-fluid d-inline" %>
       </div>
 
       <div class="form-group">
@@ -35,7 +35,7 @@
       </div>
 
       <div class="form-group d-flex justify-content-center">
-        <%= f.button "送信する" , class:"btn btn-outline-success col-md-5 mt-4" %>
+        <%= f.button "送信する", class:"btn btn-outline-success col-md-5 mt-4" %>
       </div>
     <% end %>
   </div>
