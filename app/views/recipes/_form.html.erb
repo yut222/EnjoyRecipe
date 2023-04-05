@@ -2,12 +2,11 @@
 
 <main>
   <div class="container">
-
     <div class="row my-4">
+
       <div class="col-md-7 px-sm-0 d-flex align-self-center">
         <%= form_with(model: @recipe, local: true) do |f| %>
           <%= f.hidden_field :image_cache %>
-
           <div class="cooking-title">写真</div>
           <label class="img-file">
             <i class="fa-solid fa-camera" style="color: #000000;"></i>
@@ -18,20 +17,17 @@
             <%= image_tag recipe.image.url, size: "450x300" %>
           </div>
           <% unless current_page?(controller:"recipes", action: "new") %>
-            <div class="description__remove-img-label">
-              <%= f.check_box :remove_image %>
-              <%= f.label :remove_image %>
-            </div>
-          <% end %>
+          <div class="description__remove-img-label">
+            <%= f.check_box :remove_image %>
+            <%= f.label :remove_image %>
+          </div>
+        <% end %>
       </div>
 
-
       <div class="col-md-5 px-sm-0 align-self-center">
-        <div class="text-left mt-1 mb-3">
+        <div class="text-left mt-2 mb-3">
           <h3>レシピについて</h3>
         </div>
-        <!--<div class="description__texts">-->
-        <!--  <div class="cooking-title">レシピについて</div>-->
         <div class="form-group">
           <%= f.text_field :title, placeholder: "タイトル(50文字以内)", class:"form-control" %>
         </div>
@@ -44,7 +40,7 @@
           <%= f.fields_for :ingredients do |ingredient| %>
             <%= render "recipes/ingredient_fields", f: ingredient %>
           <% end %>
-          <div id="detail-association-insertion-point"></div> <!--追加ボタンを押した後、後に代入される--><!--link_to_add_association フォームの追加-->
+          <div id="detail-association-insertion-point"></div>  <!--追加ボタンを押した後、後に代入される--><!--link_to_add_association フォームの追加-->
           <%= link_to_add_association "材料の追加", f, :ingredients,
           class: "btn__color text-white btn btn-block mr-2",
           data: {
@@ -74,8 +70,6 @@
     <div class="text-left mt-3 mb-3">
       <h3>作り方</h3>
     </div>
-    <!--<section class="step">-->
-    <!--  <div class="field">-->
     <div class="form-group">
         <%= f.fields_for :steps do |step| %>
           <%= render "recipes/step_fields", f: step %>
@@ -89,12 +83,10 @@
           association_insertion_method: 'before'
           }%>
     </div>
-    <!--  </div>-->
-    <!--</section>-->
 
-
-    <%= f.submit "送信する", class:"btn btn-outline-success mt-4" %>
-
+    <div class="form-group">
+      <%= f.submit "送信する", class:"btn btn-outline-success col-md-3 mt-4 mb-4" %>
+    </div>
     <% end %>
   </div>
 </main>

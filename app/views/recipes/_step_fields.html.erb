@@ -1,33 +1,26 @@
 <div class="nested-fields row my-4" style="width: 100% !important; align-items: center">
   <%= f.hidden_field :_destroy %>
-  <!--<div class="step__inputBx">-->
-  <!--  <p class="step__number"></p>-->
 
-  <div class="step" style="width: 83%;">
-    <%= f.text_area :direction, class:"form-control introduction"%>
+  <div class="col-md-10 step" style="width: 100%;">
+    <%= f.text_area :direction, class:"form-control introduction"%>  <!--手順-->
   </div>
 
-    <div class="step__form-img" style="margin-left: 3%;">
-      <%= image_tag f.object.image.url, size: "80x80" %>
-    </div>
+  <div class="col-md-1 mt-2">
+    <%= image_tag f.object.image.url, size: "80x80" %>  <!--手順画像-->
+  </div>
 
-    <div class="step__form-img" style="margin-left: 1%;">
-      <%= link_to_remove_association f, class: 'btn btn-default' do %>
-        <!--<%#= image_tag 'delete', class: "js-remove_fields" %>-->
-        <i class="fa-solid fa-trash-can" style="color: #000000;"></i>
-      <% end %>
-    </div>
+  <div class="col-md-1 step__form-img">  <!-- style="margin-left: 1%;"-->
+    <%= link_to_remove_association f, class: 'btn btn-default' do %>
+      <i class="fa-solid fa-trash-can" style="color: #000000;"></i>  <!--ゴミ箱アイコン-->
+    <% end %>
+  </div>
 
-    <div class="step__file-input">
-      <% if current_page?(controller:"recipes", action: "new") %>
-        <span class="step__file-label">手順の画像：</span><%= f.file_field :image, accept: "image/jpeg,image/gif,image/png", id: "step-image" %>
-      <% else %>
-        <span class="step__file-label">変更後の画像：</span><%= f.file_field :image, accept: "image/jpeg,image/gif,image/png", id: "step-image" %>
-      <% end %>
-    </div>
-
-
-
-
+  <div class="step__file-input">
+    <% if current_page?(controller:"recipes", action: "new") %>
+      &emsp;<span class="step__file-label">手順の画像：</span><%= f.file_field :image, accept: "image/jpeg,image/gif,image/png", id: "step-image" %>
+    <% else %>
+      &emsp;<span class="step__file-label">変更後の画像：</span><%= f.file_field :image, accept: "image/jpeg,image/gif,image/png", id: "step-image" %>
+    <% end %>
+  </div>
 
 </div>
