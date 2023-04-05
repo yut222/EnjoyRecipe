@@ -8,12 +8,13 @@
     <div class="main-title mt-4 mb-4">
       <h3>Recipe</h3>
     </div>
+    <% if @recipes.any? %>
+      <%= render 'shared/recipe_list' %>
+    <% else %>
+      <p class="notthing"><%= "#{@user.name}さんの投稿はありません。" %></p>
+    <% end %>
   </div>
-  <% if @recipes.any? %>
-    <%= render 'shared/recipe_list' %>
-  <% else %>
-    <p class="notthing"><%= "#{@user.name}さんの投稿はありません。" %></p>
-  <% end %>
+
   <div class="col-md-12 justify-content-center d-flex mb-4">
     <%= paginate @recipes %>
   </div>
