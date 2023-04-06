@@ -64,6 +64,7 @@ class RecipesController < ApplicationController
   end
 
   def update
+    binding.irb
     @recipe.update(recipe_params)
     if @recipe.save
       @recipe.create_tags(params[:recipe][:tag_ids])  # 関連タグ表示

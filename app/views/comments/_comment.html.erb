@@ -10,7 +10,6 @@
       <% end %>
     <% end %>
 
-
     <div>
       <%= link_to image_tag(comment.user.avatar.url), user_path(id: comment.user_id), class:"user-list__img rounded-circle" %>
       <%= link_to comment.user.name, user_path(id: comment.user_id) %>
@@ -21,10 +20,8 @@
 
     <% if user_signed_in? %>
       <!--<div id="comment-form">-->
-      <div class="form-group">
-        <%= render 'comments/reply_form', comment: comment, class:"form-control" %>
-
+      <%= render 'comments/reply_form', comment: comment %>
     <% end %>
-    <%= render 'comments/reply_comment', comment: comment, class:"form-control introduction" %>
+    <%= render 'comments/reply_comment', comment: comment %>
   </div>
 <% end %>

@@ -73,30 +73,37 @@
       </section>
     </div>
 
-    <div class="row my-4">
-      <div class="col-md-4 d-flex container-content-center">
-        <section class="step">
-          <div class="cooking-title mb-2">＊作り方＊</div>
+    <div class="my-4">
+          <div class="cooking-title col-3">＊作り方＊</div>
+
+
+          <div class="row">
+
           <% @recipe.steps.each do |step| %>
+          <div class="col-4">
+            <div class="row">
             <!--<div class="step__item">-->
             <!--<div class="step__inner">-->
             <!--<div class="step__content">-->
             <!--<p class="step__number"></p>-->
-            <p class="ingredient__line"><%= step.direction %></p>
+            <p class="ingredient__line col-8 p-0"><%= step.direction %></p>
             <!--</div>-->
             <% if step.image? %>
               <!--<div class="step__img">-->
-                <%= image_tag step.image.url, size: "100x100" %>
+                <%= image_tag step.image.url, size: "100x100",class: "col-4" %>
               <!--</div>-->
             <% end %>
             <!--  </div>-->
             <!--</div>-->
+            </div>
+            </div>
           <% end %>
-        </section>
-      </div>
+          </div>
+
+
     </div>
 
-    <%= render 'shared/recipe_comment', comments: @comments %>
+  <%= render 'shared/recipe_comment', comments: @comments %>
 
   </div>
 </main>
