@@ -1,12 +1,23 @@
-<section class="user-list">
-  <div class="cooking-title"><%= @title %></div>
+<div class="container">
+  <div class="row">
 
-  <% if @users.any? %>
-    <%= render 'shared/user-list' %>
-  <% else %>
-    <p class="notthing"><%= @message %></p>
-  <% end %>
-  <%= paginate @users %>
+    <section class="user-list">
+      <h3 class="cooking-title mb-4"><%= @title %></h3>
 
-<div class="cancel"><%= link_to "マイページに戻る", @user, class: "withdrawal btn btn-outline-primary" %></div>
-</section>
+      <% if @users.any? %>
+        <%= render 'shared/user-list' %>
+      <% else %>
+        <p class="notthing"><%= @message %></p>
+      <% end %>
+
+      <div class="col-md-12 justify-content-center d-flex mb-4">
+     　 <%= paginate @users %>
+    　</div>
+
+
+    　　<%= link_to "マイページに戻る", @user, class: "withdrawal btn btn-outline-primary mb-4" %>
+
+    </section>
+
+  </div>
+</div>

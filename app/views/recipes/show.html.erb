@@ -18,15 +18,12 @@
             <div class="description__detail">
               <%= @recipe.description %>
             </div>
-          </div>
-          <div id="recipe_<%= @recipe.id %>">
-            <%= render partial: "favorite", locals: { recipe: @recipe } %>
+            <div id="recipe_<%= @recipe.id %>">
+              <%= render partial: "favorite", locals: { recipe: @recipe } %>
+            </div>
           </div>
         </div>
       </div>
-
-
-
 
       <div class="col-6 d-flex justify-content-center align-self-center">
         <div class="recipeuser">
@@ -47,57 +44,59 @@
     </div>
 
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-3 d-flex container-content-center">
+
+    <div class="row my-4">
+      <div class="col-md-6 d-flex container-content-center">
         <section class="ingredient">
-          <div class="cooking-title">材料</div>
+          <div class="cooking-title mb-2">＊材料＊</div>
           <% @recipe.ingredients.each do |ingredient| %>
-            <div class="ingredient__ul">
-              <div><%= ingredient.content %></div>
-              <div><%= ingredient.quantity %></div>
+            <div class="ingredient__line">  <!--ボーダーラインccs-->
+              <%= ingredient.content %>
+              &emsp;<%= ingredient.quantity %>
             </div>
           <% end %>
         </section>
-
-
-  <!--</section>-->
-
-  <section class="tag">
-    <div class="cooking-title">関連タグ</div>
-    <div class="tag__container">
-      <% if @recipe.tags.empty? %>
-        <p class="tag__none">関連タグが設定されていません</p>
-      <% else %>
-        <% @recipe.tags.each do |tag| %>
-          <%= tag.name %>
-        <% end %>
-      <% end %>
-    </div>
-  </section>
-
-  <section class="step">
-    <div class="cooking-title">作り方</div>
-    <% @recipe.steps.each do |step| %>
-      <div class="step__item">
-        <div class="step__inner">
-          <div class="step__content">
-            <p class="step__number"></p>
-            <p class="step__description"><%= step.direction %></p>
-          </div>
-          <% if step.image? %>
-            <div class="step__img">
-              <%= image_tag step.image.url, size: "100x100" %>
-            </div>
+      </div>
+      <!--</section>-->
+      <!--<div class="col-md-12 d-flex container-content-center">-->
+      <section class="tag">
+        <div class="cooking-title mb-2">＊関連タグ＊</div>
+        <div class="ingredient__line">  <!--ボーダーラインccs-->
+          <% if @recipe.tags.empty? %>
+            <p class="tag__none">関連タグが設定されていません</p>
+          <% else %>
+            <% @recipe.tags.each do |tag| %>
+              <%= tag.name %>
+            <% end %>
           <% end %>
         </div>
+      </section>
+    </div>
+
+    <div class="row my-4">
+      <div class="col-md-4 d-flex container-content-center">
+        <section class="step">
+          <div class="cooking-title mb-2">＊作り方＊</div>
+          <% @recipe.steps.each do |step| %>
+            <!--<div class="step__item">-->
+            <!--<div class="step__inner">-->
+            <!--<div class="step__content">-->
+            <!--<p class="step__number"></p>-->
+            <p class="ingredient__line"><%= step.direction %></p>
+            <!--</div>-->
+            <% if step.image? %>
+              <!--<div class="step__img">-->
+                <%= image_tag step.image.url, size: "100x100" %>
+              <!--</div>-->
+            <% end %>
+            <!--  </div>-->
+            <!--</div>-->
+          <% end %>
+        </section>
       </div>
-    <% end %>
-  </section>
+    </div>
 
-</div></div></div>
+    <%= render 'shared/recipe_comment', comments: @comments %>
 
-  <%= render 'shared/recipe_comment', comments: @comments %>
-</div>
   </div>
 </main>

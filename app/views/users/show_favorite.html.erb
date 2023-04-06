@@ -1,22 +1,26 @@
-<section class="user">
-  <%= render 'show_user', user: @user %>
-</section>
+<div class="container">
 
-<%= render 'shared/flash' %>
-<section class="user-list">
-  <div class="subheader container">
-    <div class="main-title mt-4 mb-4">
-      <h3>Favorite</h3>
+  <section class="user">
+    <%= render 'show_user', user: @user %>
+  </section>
+
+  <%= render 'shared/flash' %>
+  <section class="user-list">
+    <div class="subheader container">
+      <div class="main-title mt-4 mb-4">
+        <h3>Favorite</h3>
+      </div>
     </div>
-  </div>
 
-  <% if @recipes.any? %>
-    <%= render 'shared/recipe_list' %>
-  <% else %>
-    <p class="notthing"><%= "#{@user.name}さんがいいねしたレシピはありません。" %></p>
-  <% end %>
+    <% if @recipes.any? %>
+      <%= render 'shared/recipe_list' %>
+    <% else %>
+      <p class="notthing"><%= "#{@user.name}さんがいいねしたレシピはありません。" %></p>
+    <% end %>
 
-  <div class="col-md-12 justify-content-center d-flex">
-    <%= paginate @recipes %>
-  </div>
-</section>
+    <div class="col-md-12 justify-content-center d-flex">
+      <%= paginate @recipes %>
+    </div>
+  </section>
+
+</div>

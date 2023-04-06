@@ -5,27 +5,26 @@
   <div class="comment__item">
     <% if user_signed_in? && comment.user == current_user %>
       <%#= link_to image_tag("delete", alt: "delete"), recipe_comment_path(@recipe.id, comment.id), class: 'comment__delete', method: :delete, data: { confirm: '削除してよろしいですか？' } %>
-
       <%= link_to recipe_comment_path(@recipe.id, comment.id), class: 'comment__delete', method: :delete, data: { confirm: '削除してよろしいですか？' } do %>
-        <i class="fa-solid fa-trash-can" style="color: #000000;"></i>
+        <i class="fa-solid fa-trash-can" style="color: #000000;"></i>  <!--ゴミ箱アイコン-->
       <% end %>
-
     <% end %>
 
 
-    <div class="comment__info">
-      <%= link_to image_tag(comment.user.avatar.url), user_path(id: comment.user_id), class: "comment__img", size: "200x200" %>
-      <%= link_to comment.user.name, user_path(id: comment.user_id), class: "comment__name"%>
+    <div>
+      <%= link_to image_tag(comment.user.avatar.url), user_path(id: comment.user_id), class:"user-list__img rounded-circle" %>
+      <%= link_to comment.user.name, user_path(id: comment.user_id) %>
       <div class="post-date"><%= comment.created_at.to_s(:datetime_jp) %></div>
     </div>
 
     <div class="comment__content"><%= comment.content %></div>
 
     <% if user_signed_in? %>
-      <div id="comment-form">
-        <%= render 'comments/reply_form', comment: comment %>
-      </div>
+      <!--<div id="comment-form">-->
+      <div class="form-group">
+        <%= render 'comments/reply_form', comment: comment, class:"form-control" %>
+
     <% end %>
-    <%= render 'comments/reply_comment', comment: comment %>
+    <%= render 'comments/reply_comment', comment: comment, class:"form-control introduction" %>
   </div>
 <% end %>

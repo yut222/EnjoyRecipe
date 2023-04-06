@@ -1,10 +1,11 @@
-<section class="user">
-  <%= render 'shared/flash' %>
-  <%= render 'show_user', user: @user %>
-</section>
+<div class="subheader container">
 
-<section class="list">
-  <div class="subheader container">
+  <section class="user">
+    <%= render 'shared/flash' %>
+    <%= render 'show_user', user: @user %>
+  </section>
+
+  <section class="list">
     <div class="main-title mt-4 mb-4">
       <h3>Recipe</h3>
     </div>
@@ -13,9 +14,10 @@
     <% else %>
       <p class="notthing"><%= "#{@user.name}さんの投稿はありません。" %></p>
     <% end %>
-  </div>
 
-  <div class="col-md-12 justify-content-center d-flex mb-4">
-    <%= paginate @recipes %>
-  </div>
-</section>
+    <div class="col-md-12 justify-content-center d-flex mb-4">
+      <%= paginate @recipes %>
+    </div>
+  </section>
+
+</div>
