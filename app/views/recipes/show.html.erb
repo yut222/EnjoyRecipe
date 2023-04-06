@@ -1,23 +1,35 @@
 <%= render 'shared/flash' %>
 <main>
-  <section class="description">
-    <div class="description__inner">
-      <div class="description__img-field">
-        <div class="description__img">
-          <%= image_tag @recipe.image.url, size: "300x300" %>
-        </div>
-      </div>
-      <div class="description__texts">
-        <div class="description__title">
-          <%= @recipe.title %>
-          <div class="description__detail">
-            <%= @recipe.description %>
-          </div>
-        </div>
-        <div id="recipe_<%= @recipe.id %>">
-          <%= render partial: "favorite", locals: { recipe: @recipe } %>
-        </div>
 
+  <div class="container">
+
+    <div class="row">
+      <div class="col-6 d-flex justify-content-center">
+
+        <!--<section class="description">-->
+          <div class="description__inner">
+            <div class="description__img-field">
+              <div class="description__img">
+                <%= image_tag @recipe.image.url, size: "300x300" %>
+              </div>
+            </div>
+            <div class="description__texts">
+              <div class="description__title">
+                <%= @recipe.title %>
+                <div class="description__detail">
+                  <%= @recipe.description %>
+                </div>
+              </div>
+              <div id="recipe_<%= @recipe.id %>">
+                <%= render partial: "favorite", locals: { recipe: @recipe } %>
+              </div>
+
+      </div>
+    </div>
+      </div>
+
+
+      <div class="col-6 d-flex justify-content-center">
         <div class="recipeuser">
           <div class="cooking-title">ユーザープロフィール</div>
           <div class="recipeuser__inner">
@@ -30,7 +42,11 @@
             <% end %>
           </div>
         </div>
+      </div>
 
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 d-flex container-content-center">
         <section class="ingredient">
           <div class="cooking-title">材料</div>
           <% @recipe.ingredients.each do |ingredient| %>
@@ -40,9 +56,9 @@
             </div>
           <% end %>
         </section>
-      </div>
-    </div>
-  </section>
+
+
+  <!--</section>-->
 
   <section class="tag">
     <div class="cooking-title">関連タグ</div>
@@ -75,5 +91,10 @@
       </div>
     <% end %>
   </section>
+
+</div></div></div>
+
   <%= render 'shared/recipe_comment', comments: @comments %>
+</div>
+  </div>
 </main>
