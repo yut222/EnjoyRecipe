@@ -2,7 +2,7 @@
 
 <main>
   <div class="row my-4">
-    <div class="col-md-7 px-sm-0 d-flex align-self-center">
+    <div class="col-md-7 d-flex align-self-center">
       <%= form_with(model: @recipe, local: true) do |f| %>
         <%= f.hidden_field :image_cache %>
         <div class="cooking-title">写真</div>
@@ -10,7 +10,7 @@
           <i class="fa-solid fa-camera" style="color: #000000;"></i>
           <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png", class: "image" %>
         </label>
-        <div class="preview description__preview"></div>
+        <!--<div class="preview description__preview"></div>-->
         <div class="description__img set-img">
           <%= image_tag recipe.image.url, size: "450x300" %>
         </div>
@@ -68,17 +68,17 @@
     <h3>作り方</h3>
   </div>
   <div class="form-group">
-      <%= f.fields_for :steps do |step| %>
-        <%= render "recipes/step_fields", f: step %>
-      <% end %>
+    <%= f.fields_for :steps do |step| %>
+      <%= render "recipes/step_fields", f: step %>
+    <% end %>
 
-      <div id="detail-association-insertion-point_step"></div>  <!--追加ボタンを押した後、後に代入される--><!--link_to_add_association フォームの追加-->
-        <%= link_to_add_association "作り方の追加", f, :steps,
-        class: "btn__color text-white btn btn-block",
-        data: {
-        association_insertion_node: '#detail-association-insertion-point_step',
-        association_insertion_method: 'before'
-        }%>
+    <div id="detail-association-insertion-point_step"></div>  <!--追加ボタンを押した後、後に代入される--><!--link_to_add_association フォームの追加-->
+      <%= link_to_add_association "作り方の追加", f, :steps,
+      class: "btn__color text-white btn btn-block",
+      data: {
+      association_insertion_node: '#detail-association-insertion-point_step',
+      association_insertion_method: 'before'
+      }%>
   </div>
 
   <div class="row">

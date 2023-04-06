@@ -5,44 +5,47 @@
 
     <div class="row">
       <div class="col-6 d-flex justify-content-center">
-
+        <div class="card">
         <!--<section class="description">-->
-          <div class="description__inner">
-            <div class="description__img-field">
-              <div class="description__img">
-                <%= image_tag @recipe.image.url, size: "300x300" %>
-              </div>
+          <!--<div class="description__inner">-->
+          <!--  <div class="description__img-field">-->
+          <!--    <div class="description__img">-->
+          <%= image_tag @recipe.image.url, class: "description__img" %>
+          <div class="card-body">
+            <!--<div class="description__texts">-->
+            <!--  <div class="description__title">-->
+            <%= @recipe.title %>
+            <div class="description__detail">
+              <%= @recipe.description %>
             </div>
-            <div class="description__texts">
-              <div class="description__title">
-                <%= @recipe.title %>
-                <div class="description__detail">
-                  <%= @recipe.description %>
-                </div>
-              </div>
-              <div id="recipe_<%= @recipe.id %>">
-                <%= render partial: "favorite", locals: { recipe: @recipe } %>
-              </div>
-
-      </div>
-    </div>
-      </div>
-
-
-      <div class="col-6 d-flex justify-content-center">
-        <div class="recipeuser">
-          <div class="cooking-title">ユーザープロフィール</div>
-          <div class="recipeuser__inner">
-            <div class="recipeuser__img">
-              <%= link_to image_tag(@recipe.user.avatar.url, size: "200x200", class:'rounded-circle'), user_path(id: @recipe.user_id) %>
-            </div>
-            <%= link_to @recipe.user.name, user_path(id: @recipe.user_id), class:"recipeuser__name" %>
-            <% if user_signed_in? && @recipe.user == current_user %>
-              <%= link_to 'レシピ編集', edit_recipe_path, class:'btn btn-outline-success',data: {"turbolinks"=>false} %>
-            <% end %>
+          </div>
+          <div id="recipe_<%= @recipe.id %>">
+            <%= render partial: "favorite", locals: { recipe: @recipe } %>
           </div>
         </div>
       </div>
+
+
+
+
+      <div class="col-6 d-flex justify-content-center align-self-center">
+        <div class="recipeuser">
+          <div class="text-center mb-3">ユーザープロフィール</div>
+          <div class="recipeuser__inner">
+            <div class="d-flex justify-content-center">
+              <%= link_to image_tag(@recipe.user.avatar.url, size: "150x150", class:'rounded-circle'), user_path(id: @recipe.user_id) %>
+            </div>
+            <%= link_to @recipe.user.name, user_path(id: @recipe.user_id), class:"d-flex justify-content-center recipeuser__name mt-3 mb-3" %>
+            <div>
+              <% if user_signed_in? && @recipe.user == current_user %>
+                <%= link_to 'レシピ編集', edit_recipe_path, class:'d-flex justify-content-center btn btn-outline-success',data: {"turbolinks"=>false} %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
 
 <div class="container">
   <div class="row">
