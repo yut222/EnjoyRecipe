@@ -3,7 +3,7 @@
     <%= link_to(user_path(id: user.id), class: "user-list__item") do %>
       <div class="card">
         <div class="recipelist__flex">
-          <%= image_tag user.avatar.url, class:'user-list__img rounded-circle mt-3 mb-3 ml-3', size:"100x100" %>  <!--ユーザー画像-->
+          <%= image_tag user.avatar.url, class:'rounded-circle mt-3 mb-3 ml-3', size:"100x100" %>  <!--ユーザー画像-->
           <div class="card-body">
             <div class="user-list__detail">
               <div class="user-list__name"><%= user.name %></div>  <!--ユーザー名-->

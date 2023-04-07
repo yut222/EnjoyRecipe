@@ -41,10 +41,14 @@
         <section class="ingredient">
           <div class="cooking-title mb-2">＊材料＊</div>
           <% @recipe.ingredients.each do |ingredient| %>
-            <div class="ingredient__line mb-2" >  <!--ボーダーラインccs-->
+          <div class="d-flex">
+            <div class="ingredient__line col-md-6 mr-2 mb-2" >  <!--ボーダーラインccs-->
               <%= ingredient.content %>
-              &emsp;<%= ingredient.quantity %>
             </div>
+            <div class="ingredient__line col-md-6 mb-2" >  <!--ボーダーラインccs-->
+              <%= ingredient.quantity %>
+            </div>
+          </div>
           <% end %>
         </section>
       </div>
