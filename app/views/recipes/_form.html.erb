@@ -12,7 +12,6 @@
           <i class="fa-solid fa-camera" style="color: #000000;"></i>
           <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png", class: "image" %>
         </label>
-        <!--<div class="preview description__preview"></div>-->
         <div class="description__img set-img">
           <%= image_tag recipe.image.url, size: "450x300" %>
         </div>

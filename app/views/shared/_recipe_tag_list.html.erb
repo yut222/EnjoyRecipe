@@ -4,7 +4,8 @@
                       options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]),
                       {
                         prompt: 'タグで絞り込み',
-                        class: 'tag__item mt-2 mb-5',
+                        class: 'tag__item mt-2 mb-5 rounded-lg',
+                        style: "opacity: 0.6; padding: 6px;",
                         onchange: 'submit(this.form);'
                       }
       %>

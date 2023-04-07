@@ -7,12 +7,12 @@
     <%= form_with model: @inventory do |f| %>
 
       <div class="form-group">
-        <%= f.label :image, class: "inventory__label mr-3 d-none " do %>
+        <%= f.label :image, class: "inventory__label mr-3 d-none" do %>
          　　<%= f.file_field :image, accept: "image/jpeg,image/gif,image/png", class: "hidden_file_field" %>
         <% end %>
         <i class="fa-solid fa-camera mr-2" style="color: #000000;"></i>食材画像
         </br>
-        <%= image_tag inventory.image.url, class: "inventory__img img-fluid d-inline" %>
+        <%= image_tag inventory.image.url, class: "inventory__photo img-fluid d-inline" %>
       </div>
 
       <div class="form-group">

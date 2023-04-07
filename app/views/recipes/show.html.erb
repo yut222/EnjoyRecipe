@@ -1,19 +1,12 @@
 <%= render 'shared/flash' %>
 <main>
-
   <div class="container">
 
     <div class="row">
       <div class="col-6 d-flex justify-content-center">
         <div class="card">
-        <!--<section class="description">-->
-          <!--<div class="description__inner">-->
-          <!--  <div class="description__img-field">-->
-          <!--    <div class="description__img">-->
           <%= image_tag @recipe.image.url, class: "description__img" %>
           <div class="card-body">
-            <!--<div class="description__texts">-->
-            <!--  <div class="description__title">-->
             <%= @recipe.title %>
             <div class="description__detail">
               <%= @recipe.description %>
@@ -39,15 +32,7 @@
               <% end %>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
 
-
-
-    <div class="row my-4">
-      <div class="col-md-6 d-flex container-content-center">
-        <section class="ingredient">
           <div class="cooking-title mb-2">＊材料＊</div>
           <% @recipe.ingredients.each do |ingredient| %>
             <div class="ingredient__line">  <!--ボーダーラインccs-->
@@ -55,55 +40,61 @@
               &emsp;<%= ingredient.quantity %>
             </div>
           <% end %>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="row my-4">
+      <div class="col-md-6 d-flex container-content-center my-4">
+        <section class="ingredient col-6">
+          <div class="cooking-title mb-2">＊材料＊</div>
+          <% @recipe.ingredients.each do |ingredient| %>
+            <div class="ingredient__line" >  <!--ボーダーラインccs-->
+              <%= ingredient.content %>
+              &emsp;<%= ingredient.quantity %>
+            </div>
+          <% end %>
         </section>
       </div>
-      <!--</section>-->
-      <!--<div class="col-md-12 d-flex container-content-center">-->
-      <section class="tag">
-        <div class="cooking-title mb-2">＊関連タグ＊</div>
-        <div class="ingredient__line">  <!--ボーダーラインccs-->
-          <% if @recipe.tags.empty? %>
-            <p class="tag__none">関連タグが設定されていません</p>
-          <% else %>
-            <% @recipe.tags.each do |tag| %>
-              <%= tag.name %>
+      <div class="col-md-6 d-flex container-content-center my-4">
+        <section class="tag col-6">
+          <div class="cooking-title mb-2">＊関連タグ＊</div>
+          <div class="ingredient__line">  <!--ボーダーラインccs-->
+            <% if @recipe.tags.empty? %>
+              <p class="tag__none">関連タグが設定されていません</p>
+            <% else %>
+              <% @recipe.tags.each do |tag| %>
+                <%= tag.name %>
+              <% end %>
             <% end %>
-          <% end %>
-        </div>
-      </section>
-    </div>
-
-    <div class="my-4">
-          <div class="cooking-title col-3">＊作り方＊</div>
-
-
-          <div class="row">
-
-          <% @recipe.steps.each_with_index do |step, index| %>
-          <div class="col-4">
-            <div class="row">
-            <!--<div class="step__item">-->
-            <!--<div class="step__inner">-->
-            <!--<div class="step__content">-->
-            <!--<p class="step__number"></p>-->
-            <p class="ingredient__line col-8 p-0"><%= index + 1 %>. <%= step.direction %></p>
-            <!--</div>-->
-            <% if step.image? %>
-              <!--<div class="step__img">-->
-                <%= image_tag step.image.url, size: "100x100",class: "col-4" %>
-              <!--</div>-->
-            <% end %>
-            <!--  </div>-->
-            <!--</div>-->
-            </div>
-            </div>
-          <% end %>
           </div>
-
-
+        </section>
+      </div>
     </div>
 
-  <%= render 'shared/recipe_comment', comments: @comments %>
+    <div class="row my-4">
+      <div class="col-md-12 mb-2">＊作り方＊</div>
+    </div>
+
+      <!--<div class="col-md-6 d-flex container-content-center my-4">-->
+      <!--  <section class="ingredient col-12">-->
+      <!--    <div class="cooking-title mb-2">＊作り方＊</div>-->
+
+      <div class="row">
+            <% @recipe.steps.each_with_index do |step, index| %>
+              <div class="col-md-12">
+                <p class="ingredient__line col-8 p-0"><%= index + 1 %>. <%= step.direction %></p>
+                <% if step.image? %>
+                  <%= image_tag step.image.url, size: "100x100",class: "col-4" %>
+                <% end %>
+              </div>
+            <% end %>
+      </div>
+    <!--  </section>-->
+    <!--</div>-->
+   </div>
+    <%= render 'shared/recipe_comment', comments: @comments %>
 
   </div>
 </main>
