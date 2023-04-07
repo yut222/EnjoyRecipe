@@ -66,25 +66,16 @@
 
     <div class="row my-4">
       <div class="col-md-12 mb-2">＊作り方＊</div>
+      <% @recipe.steps.each_with_index do |step, index| %>
+        <div class="col-md-12">
+          <%= index + 1 %>.
+          <p class="ingredient__line form-control" style="height: fit-content;padding: 1%;"><%= step.direction %></p>
+          <% if step.image? %>
+            <%= image_tag step.image.url, class: "stepshow__img mb-2" %>
+          <% end %>
+        </div>
+      <% end %>
     </div>
-      <!--<div class="col-md-6 d-flex container-content-center my-4">-->
-      <!--  <section class="ingredient col-12">-->
-      <!--    <div class="cooking-title mb-2">＊作り方＊</div>-->
-
-
-      <div class="row">
-            <% @recipe.steps.each_with_index do |step, index| %>
-              <div class="col-md-12 d-flex">
-                <%= index + 1 %>.
-                <p class="ingredient__line col-9 form-control" style="height: fit-content;padding: 2%;"><%= step.direction %></p>
-                <% if step.image? %>
-                  <%= image_tag step.image.url, class: "stepshow__img col-4", size: "50x50" %>
-                <% end %>
-              </div>
-            <% end %>
-      </div>
-
-
 
     <%= render 'shared/recipe_comment', comments: @comments %>
 
