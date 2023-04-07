@@ -4,14 +4,13 @@
   <% end %>
   <div class="comment__item">
     <% if user_signed_in? && comment.user == current_user %>
-      <%#= link_to image_tag("delete", alt: "delete"), recipe_comment_path(@recipe.id, comment.id), class: 'comment__delete', method: :delete, data: { confirm: '削除してよろしいですか？' } %>
       <%= link_to recipe_comment_path(@recipe.id, comment.id), class: 'comment__delete', method: :delete, data: { confirm: '削除してよろしいですか？' } do %>
-        <i class="fa-solid fa-trash-can" style="color: #000000;"></i>  <!--ゴミ箱アイコン-->
+        <i class="fa-solid fa-trash-can mt-3" style="color: #000000;"></i>  <!--ゴミ箱アイコン-->
       <% end %>
     <% end %>
 
     <div>
-      <%= link_to image_tag(comment.user.avatar.url), user_path(id: comment.user_id), class:"user-list__img rounded-circle" %>
+      <%= link_to image_tag(comment.user.avatar.url, class:'comment__img rounded-circle'), user_path(id: comment.user_id) %>
       <%= link_to comment.user.name, user_path(id: comment.user_id) %>
       <div class="post-date"><%= comment.created_at.to_s(:datetime_jp) %></div>
     </div>
@@ -19,7 +18,6 @@
     <div class="comment__content"><%= comment.content %></div>
 
     <% if user_signed_in? %>
-      <!--<div id="comment-form">-->
       <%= render 'comments/reply_form', comment: comment %>
     <% end %>
     <%= render 'comments/reply_comment', comment: comment %>
