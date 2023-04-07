@@ -3,7 +3,7 @@
   <div class="container">
 
     <div class="row">
-      <div class="col-6 d-flex justify-content-center">
+      <div class="col-md-6 d-flex justify-content-center">
         <div class="card">
           <%= image_tag @recipe.image.url, class: "description__img" %>
           <div class="card-body">
@@ -18,9 +18,9 @@
         </div>
       </div>
 
-      <div class="col-6 d-flex justify-content-center align-self-center">
+      <div class="col-md-6 d-flex justify-content-center align-self-center">
         <div class="recipeuser">
-          <div class="text-center mb-3">ユーザープロフィール</div>
+          <div class="text-center mt-4 mb-3">ユーザープロフィール</div>
           <div class="recipeuser__inner">
             <div class="d-flex justify-content-center">
               <%= link_to image_tag(@recipe.user.avatar.url, size: "150x150", class:'rounded-circle'), user_path(id: @recipe.user_id) %>
@@ -28,39 +28,30 @@
             <%= link_to @recipe.user.name, user_path(id: @recipe.user_id), class:"d-flex justify-content-center recipeuser__name mt-3 mb-3" %>
             <div>
               <% if user_signed_in? && @recipe.user == current_user %>
-                <%= link_to 'レシピ編集', edit_recipe_path, class:'d-flex justify-content-center btn btn-outline-success',data: {"turbolinks"=>false} %>
+                <%= link_to 'レシピ編集', edit_recipe_path, class:'d-flex justify-content-center mt-4 btn btn-outline-success',data: {"turbolinks"=>false} %>
               <% end %>
             </div>
           </div>
-
-          <div class="cooking-title mb-2">＊材料＊</div>
-          <% @recipe.ingredients.each do |ingredient| %>
-            <div class="ingredient__line">  <!--ボーダーラインccs-->
-              <%= ingredient.content %>
-              &emsp;<%= ingredient.quantity %>
-            </div>
-          <% end %>
-
         </div>
       </div>
     </div>
 
     <div class="row my-4">
-      <div class="col-md-6 d-flex container-content-center my-4">
-        <section class="ingredient col-6">
+      <div class="col-md-6 my-4">
+        <section class="ingredient">
           <div class="cooking-title mb-2">＊材料＊</div>
           <% @recipe.ingredients.each do |ingredient| %>
-            <div class="ingredient__line" >  <!--ボーダーラインccs-->
+            <div class="ingredient__line mb-2" >  <!--ボーダーラインccs-->
               <%= ingredient.content %>
               &emsp;<%= ingredient.quantity %>
             </div>
           <% end %>
         </section>
       </div>
-      <div class="col-md-6 d-flex container-content-center my-4">
-        <section class="tag col-6">
+      <div class="col-md-6 my-4">
+        <section class="tag">
           <div class="cooking-title mb-2">＊関連タグ＊</div>
-          <div class="ingredient__line">  <!--ボーダーラインccs-->
+          <div class="ingredient__line mb-2">  <!--ボーダーラインccs-->
             <% if @recipe.tags.empty? %>
               <p class="tag__none">関連タグが設定されていません</p>
             <% else %>
@@ -76,24 +67,25 @@
     <div class="row my-4">
       <div class="col-md-12 mb-2">＊作り方＊</div>
     </div>
-
       <!--<div class="col-md-6 d-flex container-content-center my-4">-->
       <!--  <section class="ingredient col-12">-->
       <!--    <div class="cooking-title mb-2">＊作り方＊</div>-->
 
+
       <div class="row">
             <% @recipe.steps.each_with_index do |step, index| %>
-              <div class="col-md-12">
-                <p class="ingredient__line col-8 p-0"><%= index + 1 %>. <%= step.direction %></p>
+              <div class="col-md-12 d-flex">
+                <%= index + 1 %>.
+                <p class="ingredient__line col-9 form-control" style="height: fit-content;padding: 2%;"><%= step.direction %></p>
                 <% if step.image? %>
-                  <%= image_tag step.image.url, size: "100x100",class: "col-4" %>
+                  <%= image_tag step.image.url, class: "stepshow__img col-4", size: "50x50" %>
                 <% end %>
               </div>
             <% end %>
       </div>
-    <!--  </section>-->
-    <!--</div>-->
-   </div>
+
+
+
     <%= render 'shared/recipe_comment', comments: @comments %>
 
   </div>
