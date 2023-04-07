@@ -5,7 +5,8 @@
   <%= f.hidden_field :user_id, value: current_user.id %>
 
   <div class="comment__reply-submit">
-    <i class="fa-solid fa-paper-plane" style="color: #000000;"></i>  <!--送信アイコン-->
-    <%#= f.button image_tag('send-comment', alt: "send-comment") %>
+    <%= button_tag type: "submit", class: "btn btn-default" do %>
+      <i class="fa-solid fa-paper-plane" style="color: #000000;"></i>
+    <% end %>
   </div>
 <% end %>
