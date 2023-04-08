@@ -9,27 +9,27 @@
 
     <% @tweet.each do |recipe| %>
       <div class="col-md-4 mb-4">
-
         <div class="card">
-          <div class="tweet__info">
-            <%= link_to image_tag(recipe.user.avatar.url, class:"list__user-img rounded-circle"), user_path(id: recipe.user_id) %>
-            <%= link_to recipe.user.name ,user_path(id: recipe.user_id) %>
-          </div>
-          <!--<div class="tweet__info">-->
-          <div class="card-body">
-            <span class="timestamp"><%= recipe.created_at.to_s(:short) %></span>
-            <!--</div>-->
-            <div><%= link_to recipe.title, recipe_path(id: recipe.id) %></div>
-            <div class="tweet__description"><%= recipe.description %></div>
-          </div>
-        </div>
-
-        <div class="card">
-          <%= link_to recipe_path(recipe) do %>
-            <div>
-              <%= image_tag recipe.image.url, class: "list__img" %>
+            <div class="tweet__info" style="margin-top: 15px;margin-left: 15px;">
+              <%= link_to image_tag(recipe.user.avatar.url, class:"list__user-img rounded-circle"), user_path(id: recipe.user_id) %>
+              <%= link_to recipe.user.name ,user_path(id: recipe.user_id) %>
             </div>
-          <% end %>
+            <!--<div class="tweet__info">-->
+            <span class="timestamp" style="margin-left: 15px;"><%= recipe.created_at.to_s(:short) %></span>
+              <!--</div>-->
+            <div style="margin-left: 15px;">
+              <%= link_to recipe.title, recipe_path(id: recipe.id) %>
+            </div>
+            <div class="tweet__description" style="margin-bottom: 15px;margin-left: 15px;">
+              <%= recipe.description %>
+            </div>
+
+            <%= link_to recipe_path(recipe) do %>
+              <div>
+                <%= image_tag recipe.image.url, class: "list__img" %>
+              </div>
+            <% end %>
+
           <div class="card-body">
             <section class="tag">
               <div class="tag__container">
