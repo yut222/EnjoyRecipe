@@ -98,3 +98,6 @@ gem 'rubocop-performance', require: false
 gem 'rubocop-rails', require: false
 
 gem 'cocoon'
+
+# pryはirbの「強化版」
+gem 'pry-rails'
