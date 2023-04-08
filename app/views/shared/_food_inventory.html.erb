@@ -2,26 +2,28 @@
   <div class="row">
 
     <% @inventories.each do |inventory| %>
-      <div class="col-md-2 mb-2">
-        <div class="justify-content-center">
-        <%= link_to image_tag(inventory.image.url, class: "inventory__photo"), inventory_path(inventory.id) %>  <!--食材画像-->
+      <div class="col-md-3 mb-2">
+        <div class="card">
+          <div class="justify-content-center">
+          <%= link_to image_tag(inventory.image.url, class: "inventory__photo"), inventory_path(inventory.id) %>  <!--食材画像-->
+          </div>
+          <div class="card-body">
+            <div class="inventory__name">
+              <%= link_to inventory.name, inventory_path(inventory.id) %>  <!--食材名-->
+            </div>
+            <div class="inventory__content d-flex">
+              <div class="inventory__expiration-date">
+                <span class="inventory__count mr-4"><%= inventory.days_left %></span>  <!--賞味期限までの日数-->
+              </div>
+              <div class="inventory__quantity mr-4">
+                <span class="inventory__count"><%= inventory.quantity %>個</span>  <!--在庫数-->
+              </div>
+              <%= link_to inventory_path(id: inventory.id), method: :delete, data: { confirm: '削除してよろしいですか？' } do %>
+                <i class="fa-solid fa-trash-can" style="color: #000000;"></i>  <!--ゴミ箱-->
+              <% end %>
+            </div>
+          </div>
         </div>
-          <div class="inventory__name">
-            <%= link_to inventory.name, inventory_path(inventory.id) %>  <!--食材名-->
-          </div>
-          <div class="inventory__content d-flex">
-            <div class="inventory__expiration-date">
-              <span class="inventory__count mr-4"><%= inventory.days_left %></span>  <!--賞味期限までの日数-->
-            </div>
-            <div class="inventory__quantity mr-4">
-              <span class="inventory__count"><%= inventory.quantity %>個</span>  <!--在庫数-->
-            </div>
-
-            <%= link_to inventory_path(id: inventory.id), method: :delete, data: { confirm: '削除してよろしいですか？' } do %>
-              <i class="fa-solid fa-trash-can" style="color: #000000;"></i>  <!--ゴミ箱-->
-            <% end %>
-
-          </div>
       </div>
     <% end %>
   </div>
