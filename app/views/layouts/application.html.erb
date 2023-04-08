@@ -18,7 +18,8 @@
         <div class="mobile-menu__cover"></div>
         <div class="nav-trigger"></div>
           <%= render 'shared/header' %>
-        <div class="main-top">
+        <div class="main-top" style="z-index:10; margin-top: 10em;">  <!--styleでheaderの前面・後面を指定できる 2か所に記述-->
+
           <%= yield %>
           <%= render 'shared/footer' %>
         </div>

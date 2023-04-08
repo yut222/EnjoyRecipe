@@ -29,9 +29,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    @user = User.find(current_user.id)
+    if @user.update(user_params)
+      flash[:notice] = "ユーザー情報を更新しました。"
+      redirect_to new_user_session_path
+    else
+      flash[:alert] = "ユーザー更新に失敗しました。"
+      render action: :edit and return
+    end
+  end
 
   # DELETE /resource
   # def destroy
@@ -76,7 +83,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   private
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :avatar)
     end
 
     def forbid_guest_user
