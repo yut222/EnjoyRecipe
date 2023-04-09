@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   before_action :withdrawal_forbit_other_user, only: [:unsubscribe, :withdrawal]
 
   def index
-    @users = User.includes(:recipes).page(params[:page]).per(6).order(id: :ASC)
+    @users = User.includes(:recipes).where(is_deleted: false).page(params[:page]).per(6).order(id: :ASC)
   end
 
   def show

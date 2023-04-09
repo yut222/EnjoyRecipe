@@ -4,7 +4,7 @@ class User < ApplicationRecord
 
   # アソシエーション
   has_many :recipes, dependent: :destroy
-  has_many :comments
+  has_many :commentsra
 
   has_many :active_relationships,
               class_name:  "Relationship",
@@ -34,7 +34,7 @@ class User < ApplicationRecord
   has_many :favorite_recipes, through: :favorites, source: :recipe
 
   mount_uploader :avatar, AvaterUploader
-  # has_one_attached :image
+  # has_one_attached :image  Activestrageを使用しないため
 
   validates :name,
             presence: true,
