@@ -115,6 +115,7 @@ class RecipesController < ApplicationController
       :description,
       :user_id,
       :keyword,
+      tag_ids: [],
       ingredients_attributes: [:id, :content, :quantity, :_destroy],
       steps_attributes: [:id, :direction, :image, :_destroy]
     )

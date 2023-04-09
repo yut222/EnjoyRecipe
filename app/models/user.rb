@@ -4,7 +4,7 @@ class User < ApplicationRecord
 
   # アソシエーション
   has_many :recipes, dependent: :destroy
-  has_many :commentsra
+  has_many :comments
 
   has_many :active_relationships,
               class_name:  "Relationship",
