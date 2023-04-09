@@ -1,20 +1,18 @@
 <!-- headerの記述 -->
 <header>
   <div class="header" style="z-index:1;">  <!--styleでheaderの前面・後面を指定できる 2か所に記述-->
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <%= link_to root_path do %>
+        <%= image_tag 'EnjoyRecipe', size: "100x100" %>  <!--logo-->
+      <% end %>
 
-  <nav class="navbar navbar-expand-lg navbar-light">
-    <%= link_to root_path do %>
-      <%= image_tag 'EnjoyRecipe', size: "100x100" %>  <!--logo-->
-    <% end %>
+      <!--ハンバーガーメニュー-->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <!--ハンバーガーメニュー-->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-      <% if user_signed_in? %>
-        <!--<div>-->
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+        <% if user_signed_in? %>
           <ul class="navbar-nav ml-auto">
             <div class="text-end mr-2">
               <%= link_to 'マイページ', user_path(id: current_user.id), class:"btn btn-outline-warning w-100 mb-2" %>
@@ -32,7 +30,7 @@
               <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:"btn btn-outline-warning w-100 mb-2" %>
             </div>
           </ul>
-      <% else %>
+        <% else %>
           <ul class="navbar-nav">
             <div class="text-end mr-2">
               <%= link_to '新規登録', new_user_registration_path, class:"btn btn-outline-warning w-100 mb-2" %>
@@ -47,10 +45,8 @@
               <%= link_to 'レシピ一覧', recipes_path, class:"btn btn-outline-warning w-100 mb-2" %>
             </div>
           </ul>
-        <!--</div>-->
-      <% end %>
+        <% end %>
       </div>
-
-  </nav>
+    </nav>
   </div>
 </header>

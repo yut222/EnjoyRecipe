@@ -1,7 +1,7 @@
 <%= render 'shared/flash' %>
+
 <main>
   <div class="container">
-
     <div class="row">
       <div class="col-md-6 d-flex justify-content-center">
         <div class="card">
@@ -17,25 +17,21 @@
           </div>
         </div>
       </div>
-
       <div class="col-md-6 d-flex justify-content-center align-self-center">
         <div class="recipeuser">
           <div class="text-center mt-4 mb-3">ユーザープロフィール</div>
-          <div class="recipeuser__inner">
-            <div class="d-flex justify-content-center">
-              <%= link_to image_tag(@recipe.user.avatar.url, size: "150x150", class:'rounded-circle'), user_path(id: @recipe.user_id) %>
-            </div>
-            <%= link_to @recipe.user.name, user_path(id: @recipe.user_id), class:"d-flex justify-content-center recipeuser__name mt-3 mb-3" %>
-            <div>
-              <% if user_signed_in? && @recipe.user == current_user %>
-                <%= link_to 'レシピ編集', edit_recipe_path, class:'d-flex justify-content-center mt-4 btn btn-outline-success',data: {"turbolinks"=>false} %>
-              <% end %>
-            </div>
+          <div class="d-flex justify-content-center">
+            <%= link_to image_tag(@recipe.user.avatar.url, size: "150x150", class:'rounded-circle'), user_path(id: @recipe.user_id) %>
+          </div>
+          <%= link_to @recipe.user.name, user_path(id: @recipe.user_id), class:"d-flex justify-content-center recipeuser__name mt-3 mb-3" %>
+          <div>
+            <% if user_signed_in? && @recipe.user == current_user %>
+              <%= link_to 'レシピ編集', edit_recipe_path, class:'d-flex justify-content-center mt-4 btn btn-outline-success',data: {"turbolinks"=>false} %>
+            <% end %>
           </div>
         </div>
       </div>
     </div>
-
     <div class="row my-4">
       <div class="col-md-6 my-4">
         <section class="ingredient">
@@ -67,21 +63,20 @@
         </section>
       </div>
     </div>
-
     <div class="row my-4">
       <div class="col-md-12 mb-2">＊作り方＊</div>
       <% @recipe.steps.each_with_index do |step, index| %>
         <div class="col-md-12">
           <%= index + 1 %>.
-          <p class="ingredient__line form-control" style="height: fit-content;padding: 1%;"><%= step.direction %></p>
+          <p class="ingredient__line form-control" style="height: fit-content;padding: 1%;">
+            <%= step.direction %>
+          </p>
           <% if step.image? %>
             <%= image_tag step.image.url, class: "stepshow__img mb-2" %>
           <% end %>
         </div>
       <% end %>
     </div>
-
     <%= render 'shared/recipe_comment', comments: @comments %>
-
   </div>
 </main>

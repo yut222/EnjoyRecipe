@@ -59,7 +59,6 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable#,
-        # :confirmable, :lockable, :timeoutable, :trackable  # 追記
 
   # バリデーション
   def validate_name
@@ -130,4 +129,5 @@ class User < ApplicationRecord
     clean_up_passwords
     result
   end
+
 end

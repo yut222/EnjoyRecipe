@@ -6,4 +6,5 @@ class Step < ApplicationRecord
 
   #画像アップロード carrierwave
   mount_uploader :image, StepImageUploader
+
 end

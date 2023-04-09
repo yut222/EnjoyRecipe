@@ -21,17 +21,5 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-// require("@rails/ujs").start()  上に記述あり
-// require("turbolinks").start()  上に記述あり
-// require("scripts/vendors/scroll-polyfill")
-// require("scripts/main")
-
 // coccon導入
-// require('jquery')
 require("@nathanvda/cocoon")
-
-// require('jquery'))
-//= require rails-ujs
-//= require turbolinks
-//= require_tree .
-// require ('cocoon')

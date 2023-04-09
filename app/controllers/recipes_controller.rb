@@ -4,13 +4,10 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
   before_action :set_q, only: [:index, :search]
 
-
   def index
     @title = "レシピ一覧"
     # 関連タグ
     @recipes = params[:tag_id].present? ? Tag.find(params[:tag_id]).recipes : Recipe
-
-
     if params[:q]
       @q = @recipes.ransack(params[:q])
       search()
@@ -26,7 +23,6 @@ class RecipesController < ApplicationController
   def show
     @title = "#{@recipe.title}"
     @comments = Comment.includes([:user]).where(recipe_id: @recipe.id)
-
     if user_signed_in?
       @comment = current_user.comments.new(flash[:comment])
       @comment_reply = current_user.comments.new
@@ -51,7 +47,6 @@ class RecipesController < ApplicationController
 
   def create
     recipe = current_user.recipes.new(recipe_params)
-
     if recipe.save
       recipe.create_tags(params[:recipe][:tag_ids])  # 関連タグ表示
       redirect_to recipe, flash: { notice: "「#{recipe.title}」のレシピを投稿しました。" }

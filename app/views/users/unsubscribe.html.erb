@@ -2,25 +2,21 @@
   <div class="col-md-6 px-sm-0 d-flex">
     <%= image_tag 'introduction.jpg', class: "introduction__img" %>
   </div>
-
   <div class="col-md-6 align-self-center">
     <div class="col-md-10 offset-md-1">
       <div class="text-center mt-4 mb-4">
         <h3>退会お手続き</h3>
       </div>
-
       <p class="text-center">
         退会手続きをされますと<br>
         一部サービスがご利用いただけなくなります。<br>
         <br>
         本当に退会してよろしいですか？
       </p>
-
-        <div class="col-md-12 px-sm-0 d-flex justify-content-center">
+      <div class="col-md-12 px-sm-0 d-flex justify-content-center">
         <%= link_to "退会しない", user_path(current_user), class: 'btn btn-outline-primary mt-3 mb-4' %>
         <%= link_to "退会する", withdrawal_path, method: :patch, data: { confirm: "本当に退会しますか？" }, class: "btn btn-outline-danger ml-5 mt-3 mb-4" %>
       </div>
     </div>
-
   </div>
 </div>

@@ -2,7 +2,6 @@
   <section class="user">
     <%= render 'show_user', user: @user %>
   </section>
-
   <%= render 'shared/flash' %>
   <section class="user-list">
     <div class="subheader container">
@@ -10,21 +9,16 @@
         <h3>Inventory</h3>
       </div>
     </div>
-
     <% if @inventories.any? %>
       <%= render 'shared/food_inventory' %>
     <% else %>
       <p class="notthing"><%= "保存中の食材はありません。" %></p>
     <% end %>
-
     <div class="col-md-12 justify-content-center d-flex">
       <%= paginate @inventories %>
     </div>
-
-
     <div class="container mt-5 mb-3">
       <%= link_to "食材を登録", new_inventory_path, class: "btn btn-outline-success mt-3" %>
     </div>
-
   </section>
 </div>

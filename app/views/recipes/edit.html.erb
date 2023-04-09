@@ -1,12 +1,10 @@
 <div class="container">
   <%= render 'form', recipe: @recipe %>
-
   <div class="row">
     <div class="col-md-10">
       <div class="cancel">
         <%= link_to '編集をやめる', @recipe, class:"btn btn-outline-primary col-md-3 mb-4" %>
       </div>
-
       <div class="cancel">
         <%= link_to 'レシピを削除', @recipe, method: :delete, data: { confirm: "削除してよろしいですか？" }, class:"btn btn-outline-danger col-md-3 mb-4" %>
       </div>

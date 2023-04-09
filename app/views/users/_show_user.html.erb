@@ -1,33 +1,32 @@
-  <div class="row mt-5 mb-4">
-    <div class="col-md-6 text-center" style="align-items: center">
-      <%= image_tag user.avatar.url, class: "rounded-circle mb-2", size: "150x150" %>
-      <div class="user__name"><%= user.name %></div>
-
-      <div class="d-flex flex-row justify-content-center mb-4">
-        <%= link_to(following_user_path(user), class:'user__follow') do %>
-          <div class="d-flex flex-row mr-4">
-            <p class="mr-1">フォロー</p>
-            <%= user.following.length %>
-          </div>
-        <% end %>
-        <%= link_to(followers_user_path(user), class:'user__follow') do %>
-          <div class="d-flex flex-row">
-            <p class="mr-1">フォロワー</p>
-            <%= user.followers.length %>
-          </div>
-        <% end %>
+<div class="row mt-5 mb-4">
+  <div class="col-md-6 text-center" style="align-items: center">
+    <%= image_tag user.avatar.url, class: "rounded-circle mb-2", size: "150x150" %>
+    <div class="user__name"><%= user.name %></div>
+    <div class="d-flex flex-row justify-content-center mb-4">
+      <%= link_to(following_user_path(user), class:'user__follow') do %>
+        <div class="d-flex flex-row mr-4">
+          <p class="mr-1">フォロー</p>
+          <%= user.following.length %>
+        </div>
+      <% end %>
+      <%= link_to(followers_user_path(user), class:'user__follow') do %>
+        <div class="d-flex flex-row">
+          <p class="mr-1">フォロワー</p>
+          <%= user.followers.length %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-md-6 d-flex justify-content-center" style="align-items: center">
+    <div class="user__follow-submit">
+      <%= render 'shared/user_submenu' if user == current_user %>
+      <div id="follow_form">
+        <%= render 'follow_form' if user_signed_in? %>
       </div>
     </div>
-
-    <div class="col-md-6 d-flex justify-content-center" style="align-items: center">
-      <div class="user__follow-submit">
-        <%= render 'shared/user_submenu' if user == current_user %>
-        <div id="follow_form"><%= render 'follow_form' if user_signed_in? %></div>
-      </div>
-    </div>
-
   </div>
+</div>
 
-  <div class="row">
-    <%= render 'shared/stats' %>
-  </div>
+<div class="row">
+  <%= render 'shared/stats' %>
+</div>

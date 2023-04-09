@@ -13,7 +13,6 @@ class Inventory < ApplicationRecord
     today = Date.today
     days_left = self.expiration_date - today
     count = days_left.to_i
-
     if count > 0
       "あと#{count}日"
     else

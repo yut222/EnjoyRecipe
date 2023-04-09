@@ -1,43 +1,35 @@
 <div class="container">
-
   <h3>「<%= @inventory.name %>」について</h3>
-
   <div class="row">
     <div class="offset-md-3 col-md-6">
-
       <div class="form-group">
         <i class="fa-solid fa-camera mr-2" style="color: #000000;"></i>食材画像
         <%= image_tag @inventory.image.url, class: "inventory__photo" %>
       </div>
-
       <div class="form-group">
         <p>食材名</p>
         <div class="border border-2 rounded-3 rounded-lg" style="padding: 5px;">
           &nbsp;<%= @inventory.name %>
         </div>
       </div>
-
       <div class="form-group">
         <p>入力日</p>
         <div class="border border-2 rounded-3 rounded-lg" style="padding: 5px;">
           &nbsp;<%= @inventory.created_at.to_s(:datetime_jp)%>
         </div>
       </div>
-
       <div class="form-group">
         <p>賞味期限</p>
         <div class="border border-2 rounded-3 rounded-lg" style="padding: 5px;">
           &nbsp;<%=  l(@inventory.expiration_date, format: :middle) %>
         </div>
       </div>
-
       <div class="form-group">
         <p>数量</p>
         <div class="border border-2 rounded-3 rounded-lg" style="padding: 5px;">
           &nbsp;<%= @inventory.quantity %>
         </div>
       </div>
-
       <div class="form-group">
         <p>メモ</p>
         <div class="border border-2 rounded-3 rounded-lg" style="padding: 10px;">
@@ -48,12 +40,10 @@
           <% end %>
         </div>
       </div>
-
       <div class="form-group d-flex flex-column mx-auto">
         <%= link_to '編集する', edit_inventory_path(id: @inventory.id), class:"btn btn-outline-success col-md-5 mx-auto mt-4" %>
         <%= link_to 'マイページに戻る', inventories_user_path(current_user.id), class:"btn btn-outline-primary col-md-5 mx-auto mt-3 mb-4" %>
       </div>
-
     </div>
   </div>
 </div>

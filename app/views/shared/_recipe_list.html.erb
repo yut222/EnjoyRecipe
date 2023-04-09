@@ -1,7 +1,7 @@
 <div class="row">
   <% @recipes.each do |recipe| %>
-   <div class="col-md-4 mb-4">
-     <div class="card">
+    <div class="col-md-4 mb-4">
+      <div class="card">
         <%= link_to image_tag(recipe.image.url,class:"list__img mr-2"), recipe_path(recipe) %>  <!--レシピ画像-->
         <div class="card-body">
           <span class="timestamp"><%= recipe.created_at.to_s(:datetime_jp) %></span><br>  <!--日付-->

@@ -6,8 +6,12 @@
           <%= image_tag user.avatar.url, class:'rounded-circle mt-3 mb-3 ml-3', size:"100x100" %>  <!--ユーザー画像-->
           <div class="card-body">
             <div class="user-list__detail">
-              <div class="user-list__name"><%= user.name %></div>  <!--ユーザー名-->
-              <div class="user-list__count">レシピ投稿数: <%= user.recipes.length %></div>  <!--レシピ投稿数-->
+              <div class="user-list__name">
+                <%= user.name %>  <!--ユーザー名-->
+              </div>
+              <div class="user-list__count">
+                レシピ投稿数: <%= user.recipes.length %>  <!--レシピ投稿数-->
+              </div>
             </div>
           </div>
         </div>

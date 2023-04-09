@@ -1,21 +1,16 @@
 <div class="container">
-
   <div class="px-sm-0 mt-4 mb-4">
     <h3><%= @title %></h3>
   </div>
-
   <div class="row">
     <% if @users.any? %>
       <%= render 'shared/user-list' %>
     <% else %>
       <p class="notthing"><%= @message %></p>
     <% end %>
-
     <div class="col-md-12 justify-content-center d-flex mb-4">
-  　   <%= paginate @users %>
+      <%= paginate @users %>
     </div>
-
     <%= link_to "マイページに戻る", @user, class: "withdrawal btn btn-outline-primary mb-4" %>
   </div>
-
 </div>

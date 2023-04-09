@@ -8,7 +8,6 @@ class Recipe < ApplicationRecord
   accepts_nested_attributes_for :ingredients, allow_destroy: true
   accepts_nested_attributes_for :steps, allow_destroy: true
 
-
   has_many :comments, dependent: :destroy
 
   has_many :recipe_tag_relations, dependent: :delete_all, validate: false
@@ -45,11 +44,11 @@ class Recipe < ApplicationRecord
 
   # 関連タグ表示
   def create_tags(tag_ids)
-     tag_ids.shift
-     recipe_tag_relations.destroy_all
-     tag_ids.each do |tag_id|
-       recipe_tag_relations.create!(tag_id: tag_id)
-     end
+    tag_ids.shift
+    recipe_tag_relations.destroy_all
+    tag_ids.each do |tag_id|
+      recipe_tag_relations.create!(tag_id: tag_id)
+    end
   end
 
   def self.ransackable_associations(auth_object = nil)

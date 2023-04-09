@@ -2,21 +2,17 @@
   <div class="col-md-6 px-sm-0 d-flex">
     <%= image_tag 'introduction.jpg', class: "introduction__img" %>
   </div>
-
   <div class="col-md-6 align-self-center">
     <div class="col-md-10 offset-md-1">
       <div class="text-center mt-4 mb-3">
         <h3>ログイン</h3>
       </div>
-
       <%= render 'shared/flash' %>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-
         <div class="form-group">
           <%= f.label :email, {class: 'login__label'} %>
           <%= f.email_field :email, autofocus: true, maxlength: '100', class:"form-control" %>
         </div>
-
         <div class="form-group">
           <%= f.label :password, {class: 'login__label'} %>
           <%= f.password_field :password, autocomplete: "off", minlength: @minimum_password_length, maxlength: '20', class:"form-control" %>
@@ -24,13 +20,9 @@
             <small class="form-text text-muted"><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></small>
           <% end %>
         </div>
-
-
-
         <div class="col-md-12 px-sm-0 d-flex justify-content-center">
           <%= f.submit "ログイン", class:"btn btn-outline-success mt-4 mb-2 w-50" %>
         </div>
-
         <div class="col-md-12 px-sm-0 d-flex justify-content-center">
           <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class:"btn btn-outline-primary mt-2 mb-4 w-50" %>
         </div>
