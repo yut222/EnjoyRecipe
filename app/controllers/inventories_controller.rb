@@ -46,6 +46,7 @@ class InventoriesController < ApplicationController
     inventory.update(inventory_params)
     user = inventory.user
     InventoryMailer.expiration_date_stock(user, inventory).deliver
+    flash[:notice] = "食材の賞味期限通知メールを送信しました。"
   end
 
 
