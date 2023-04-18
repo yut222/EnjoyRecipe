@@ -40,6 +40,15 @@ class InventoriesController < ApplicationController
     redirect_to inventories_user_path(current_user.id), flash: { notice: "保存されていた「#{@inventory.name}」を削除しました。" }
   end
 
+  # 食材通知メール
+  def inventory_mail
+    inventory = Inventory.find(params[:id]) #inventory_mailer.rbの引数を指定
+    inventory.update(inventory_params)
+    user = inventory.user
+    InventoryMailer.expiration_date_stock(user, inventory).deliver
+  end
+
+
     private
 
   def set_inventory
