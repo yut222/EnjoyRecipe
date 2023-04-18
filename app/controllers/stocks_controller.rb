@@ -1,11 +1,12 @@
 class StocksController < ApplicationController
 
 # user controller に記載
-  # def stock_mail
-  # stock = Stock.find(params[:id]) #stock_mailer.rbの引数を指定
-  # stock.update(stock_params)
-  # user = stock.user
-  # StockMailer.expiration_date_stock(user, stock).deliver
-  # end
+  def stock_mail
+    stock = Stock.find(params[:id]) #stock_mailer.rbの引数を指定
+    stock.update(stock_params)
+    user = stock.user
+    StockMailer.expiration_date_stock(user, stock).deliver
+    flash[:notice] = "食材の賞味期限通知メールを送信しました。"
+  end
 
 end

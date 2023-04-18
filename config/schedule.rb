@@ -35,15 +35,6 @@ set :output, "#{Rails.root}/log/cron.log"
 job_type :rake, 'cd :path && export PATH=/usr/local/bin:$PATH &&
   :environment_variable=:environment bundle exec rake :task --silent :output'
 
-
-# require 'active_support'
-# require 'active_support/core_ext/time'
-
-# def jst(time)
-#   Time.zone = 'Asia/Tokyo'
-#   Time.zone.parse(time).localtime($system_utc_offset)
-# end
-
-every 1.day, at: jst('6:00 am') do # 日本時間毎朝6時に実行
-  rake 'example:task'
+every 1.minute do # 日本時間毎朝9時に実行
+  rake 'expired_at_sendmail:mail_expiration_stock'
 end
