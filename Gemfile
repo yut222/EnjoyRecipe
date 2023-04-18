@@ -109,3 +109,6 @@ gem 'pry-rails'
 
 # Rspec導入
 gem 'net-smtp'
+
+# wheneverでcron設定
+gem 'whenever', require: false
