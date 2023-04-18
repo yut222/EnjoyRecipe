@@ -44,8 +44,8 @@ class InventoriesController < ApplicationController
   def inventory_mail
     inventory = Inventory.find(params[:id]) #inventory_mailer.rbの引数を指定
     inventory.update(inventory_params)
-    user = inventory.user
-    InventoryMailer.expiration_date_stock(user, inventory).deliver
+    @user = inventory.user
+    InventoryMailer.expiration_date_stock(user).deliver
     flash[:notice] = "食材の賞味期限通知メールを送信しました。"
   end
 
