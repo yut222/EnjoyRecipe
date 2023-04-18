@@ -1,0 +1,2 @@
+class StockMailer < ApplicationMailer
+end

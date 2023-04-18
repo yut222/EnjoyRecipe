@@ -31,11 +31,29 @@ Rails.application.configure do
   end
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
-  config.active_storage.service = :local
+  # config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
 
+  # 下記メールサーバー設定
+  ActionMailer::Base.delivery_method = :letter_opener
+
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    port:                 587,
+    address:              'smtp.gmail.com',
+    domain:               'gmail.com',
+    # user_name:            '<YOUR EMAIL ADDRESS>',
+    # password:             '<YOUR EMAIL PASSWORD>',
+    user_name: Rails.application.credentials.gmail[:user_name],
+    password: Rails.application.credentials.gmail[:password],
+    authentication:       'login',
+    enable_starttls_auto: true
+  }
+
+
+  config.action_mailer.raise_delivery_errors = false
   config.action_mailer.perform_caching = false
 
   # Print deprecation notices to the Rails logger.
@@ -77,4 +95,6 @@ Rails.application.configure do
   config.hosts.clear
   config.active_job.queue_adapter = :inline  # Gemファイルエラー回避
 
+  # パッケージが古くなっていたらエラーで知らせてくれる
+  config.webpacker.check_yarn_integrity = false
 end
