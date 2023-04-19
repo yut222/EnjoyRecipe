@@ -36,7 +36,7 @@ Rails.application.configure do
   # Don't care if the mailer can't send.
 
   # 下記メールサーバー設定
-  ActionMailer::Base.delivery_method = :letter_opener
+  ActionMailer::Base.delivery_method = :smtp
 
   config.action_mailer.default_url_options = {  host: 'localhost', port: 3000 }
   config.action_mailer.raise_delivery_errors = true
@@ -45,14 +45,14 @@ Rails.application.configure do
     port:                 587,
     address:              'smtp.gmail.com',
     domain:               'gmail.com',
-    user_name:            '<YOUR EMAIL ADDRESS>',
-    password:             '<YOUR EMAIL PASSWORD>',
+    user_name:            ENV['MAILER_EMAIL'],
+    password:             ENV['MAILER_PASSWORD'],
     authentication:       'login',
     enable_starttls_auto: true
   }
 
 
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_caching = false
 
   # Print deprecation notices to the Rails logger.
