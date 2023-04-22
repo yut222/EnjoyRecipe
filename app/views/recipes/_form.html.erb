@@ -8,13 +8,13 @@
         <div class="cooking-title">写真</div>
         <label class="img-file">
           <i class="fa-solid fa-camera" style="color: #000000;"></i>
-          <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png", class: "image" %>
+          <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png" %>
         </label>
-        <div class="description__img set-img">
+        <div class="description__img">
           <%= image_tag recipe.image.url, size: "450x300" %>
         </div>
         <% unless current_page?(controller:"recipes", action: "new") %>
-          <div class="description__remove-img-label">
+          <div class="description_remove-img-label">
             <%= f.check_box :remove_image %>
             <%= f.label :remove_image %>
           </div>
@@ -28,7 +28,7 @@
           <%= f.text_field :title, placeholder: "タイトル(50文字以内)", class:"form-control" %>
         </div>
         <div class="form-group">
-          <%= f.text_area :description, placeholder: "サブタイトル(140字以内)", class:"form-control introduction" %>
+          <%= f.text_area :description, placeholder: "サブタイトル(140字以内)", class:"form-control" %>
         </div>
         <div class="cooking-title">材料</div>
         <div class="form-group">

@@ -1,10 +1,10 @@
 <% comment.replies.order(:created_at).each do |reply| %>
-  <div class="comment__reply-item">
-    <div class="comment__info">
+  <div class="comment_reply-item">
+    <div>
       <%= link_to image_tag(reply.user.avatar.url, class: 'comment__img rounded-circle'), user_path(id: reply.user_id) %>
       <%= link_to reply.user.name, user_path(id: reply.user_id) %>
     </div>
-    <div class="comment__reply-content">
+    <div class="comment_reply-content">
       <%= reply.content %>
       <%= link_to recipe_comment_path(@recipe.id, reply.id), class: 'mr-3', method: :delete, data: { confirm: '削除してよろしいですか？' } do %>
         <i class="fa-solid fa-trash-can" style="color: #000000;"></i>  <!--ゴミ箱アイコン-->

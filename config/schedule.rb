@@ -35,6 +35,11 @@ set :output, "#{Rails.root}/log/cron.log"
 job_type :rake, 'cd :path && export PATH=/usr/local/bin:$PATH &&
   :environment_variable=:environment bundle exec rake :task --silent :output'
 
-every 1.day, at: '9:00 am' do  # 日本時間毎朝9時に実行
+
+# every 1.minute do
+# every 1.day, at: jst('4:00 pm') do
+# every 1.day, at: '4:00 pm' do
+every 1.day, at: '2:10 pm' do  # 日本時間毎朝9時に実行
+# every 1.day, at: '9am' do
   rake 'expired_at_sendmail:mail_expiration_stock'
 end

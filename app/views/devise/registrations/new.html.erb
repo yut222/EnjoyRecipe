@@ -7,36 +7,36 @@
       <div class="text-center mt-4 mb-3">
         <h3>新規登録</h3>
       </div>
-      <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+      <%= form_with model: @user, url: user_registration_path, id: 'new_user', local: true do |f| %>
         <div class="form-group">
-          <%= f.label :name, {class: 'login__label'} %>
+          <%= f.label :name %>
           <%= f.text_field :name, maxlength: '50', class:"form-control" %>
           <% if @user.errors.include?(:name) %>
-            <p class="login__form-error"><%= @user.errors.full_messages_for(:name).first %></p>
+            <p class="login_form-error"><%= @user.errors.full_messages_for(:name).first %></p>
           <% end %>
         </div>
         <div class="form-group">
-          <%= f.label :email, {class: 'login__label'} %>
+          <%= f.label :email %>
           <%= f.email_field :email, maxlength: '100', class:"form-control" %>
           <% if @user.errors.include?(:email) %>
-            <p class="login__form-error"><%= @user.errors.full_messages_for(:email).first %></p>
+            <p class="login_form-error"><%= @user.errors.full_messages_for(:email).first %></p>
           <% end %>
         </div>
         <div class="form-group">
-          <%= f.label :password, {class: 'login__label'} %>
+          <%= f.label :password %>
           <%= f.password_field :password, autocomplete: "off", minlength: @minimum_password_length, maxlength: '20', class:"form-control" %>
           <% if @minimum_password_length %>
             <small class="form-text text-muted"><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></small>
           <% end %>
           <% if @user.errors.include?(:password) %>
-            <p class="login__form-error"><%= @user.errors.full_messages_for(:password).first %></p>
+            <p class="login_form-error"><%= @user.errors.full_messages_for(:password).first %></p>
           <% end %>
         </div>
         <div class="form-group">
-          <%= f.label :password_confirmation, {class: 'login__label'} %>
+          <%= f.label :password_confirmation %>
           <%= f.password_field :password_confirmation, autocomplete: "off", minlength: @minimum_password_length, maxlength: '20', class:"form-control" %>
           <% if @user.errors.include?(:password_confirmation) %>
-            <p class="login__form-error"><%= @user.errors.full_messages_for(:password_confirmation).first %></p>
+            <p class="login_form-error"><%= @user.errors.full_messages_for(:password_confirmation).first %></p>
           <% end %>
         </div>
         <div class="col-md-12 px-sm-0 d-flex justify-content-center">

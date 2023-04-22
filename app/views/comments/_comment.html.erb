@@ -2,9 +2,9 @@
   <% if comment.reply_comment.present? || comment.blank? %>
     <% next %>
   <% end %>
-  <div class="comment__item">
+  <div class="comment_item">
     <% if user_signed_in? && comment.user == current_user %>
-      <%= link_to recipe_comment_path(@recipe.id, comment.id), class: 'comment__delete', method: :delete, data: { confirm: '削除してよろしいですか？' } do %>
+      <%= link_to recipe_comment_path(@recipe.id, comment.id), method: :delete, data: { confirm: '削除してよろしいですか？' } do %>
         <i class="fa-solid fa-trash-can mt-3" style="color: #000000;"></i>  <!--ゴミ箱アイコン-->
       <% end %>
     <% end %>
@@ -15,7 +15,7 @@
       <div class="post-date"><%= comment.created_at.to_s(:datetime_jp) %></div>
     </div>
 
-    <div class="comment__content"><%= comment.content %></div>
+    <div><%= comment.content %></div>
 
     <% if user_signed_in? %>
       <%= render 'comments/reply_form', comment: comment %>

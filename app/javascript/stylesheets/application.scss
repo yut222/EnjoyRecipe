@@ -9,30 +9,30 @@
   height: 100%;
 }
 
-// 在庫一覧  // 上と統合したい
+// 在庫一覧  // 上と統合したい //
 .inventory__photo {
   width: 100%;
   height: 100%;
 }
 
-// コメントのユーザ画像
+// コメントのユーザ画像  //
 .comment__img {
   width: 5%;
 }
 
-// レシピ詳細画像
+// レシピ詳細画像 //
 .description__img {
   width: 100%;
   // height: 100%;
 }
 
-//ログイン・新規登録・ユーザ編集の左側画像
+//ログイン・新規登録・ユーザ編集の左側画像 //
 .introduction__img {
   width: 100%;
   height: 100%;
 }
 
-//ログイン・新規登録・ユーザ編集のトップ背景色
+//ログイン・新規登録・ユーザ編集のトップ背景色 //
 .login__background {
   background: #EDFFDD;
 }
@@ -49,14 +49,14 @@
   height: 30px;
 }
 
-// ユーザー詳細
+// ユーザー詳細 //
 .list__img {
   width: 100%;
   height: 250px;
   object-fit: cover;
 }
 
-// マイページレシピ小ユーザー画像
+// マイページレシピ小ユーザー画像 //
 .list__user-img {
   width: 40px;
   height: 40px;
@@ -99,7 +99,7 @@
   width: 100%;
 }
 
-// ボタンを茶色に
+// ボタンを茶色に //
 .btn__color {
   background: #692927;
 }

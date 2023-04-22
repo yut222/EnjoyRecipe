@@ -1,22 +1,22 @@
 <section class="login">
-  <div class="login__imgBx">
+  <div class="login_imgBx">
     <%= image_tag 'introduction.jpg' %>
   </div>
-  <div class="login__contentBx">
-    <div class="login__formBx">
+  <div class="login_contentBx">
+    <div class="login_formBx">
       <h2>パスワードの再設定</h2>
       <%= render 'layouts/notifications' %>
       <%= form_with model: @user, url: user_password_path, local: true do |f| %>
 
-      <div class="login__inputBx">
-        <%= f.label :email, {class: 'login__label'} %>
+      <div class="login_inputBx">
+        <%= f.label :email %>
         <%= f.email_field :email,
                           autofocus: true,
                           required: true,
                           maxlength: '100'%>
       </div>
 
-      <div class="login__inputBx">
+      <div class="login_inputBx">
         <%= f.submit "再設定方法を送信" %>
       </div>
     <% end %>

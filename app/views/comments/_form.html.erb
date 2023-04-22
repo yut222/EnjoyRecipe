@@ -1,7 +1,7 @@
-<%= form_with(model:[@recipe, @comment], method: :post, class: "comment__inputBx") do |f| %>
+<%= form_with(model:[@recipe, @comment], method: :post) do |f| %>
   <%= f.hidden_field :recipe_id, value: @recipe.id %>
   <%= f.hidden_field :user_id, value: current_user.id %>
-  <%= f.label :content, "コメント投稿はこちら", class: 'comment__label mt-3'%>
+  <%= f.label :content, "コメント投稿はこちら", class: 'mt-3'%>
   <div class="form-group">
     <%= f.text_area :content, placeholder: "100文字まで入力可能です", class:"form-control introduction" %>
   </div>

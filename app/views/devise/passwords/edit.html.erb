@@ -1,15 +1,15 @@
 <section class="login">
-  <div class="login__imgBx">
+  <div class="login_imgBx">
     <%= image_tag 'introduction.jpg' %>
   </div>
-  <div class="login__contentBx">
-    <div class="login__formBx">
-      <div class="login__title">パスワード変更</div>
+  <div class="login_contentBx">
+    <div class="login_formBx">
+      <div class="login_title">パスワード変更</div>
       <%= form_with model: @user, url: user_password_path, method: :patch, local: true do |f| %>
       <%= f.hidden_field :reset_password_token %>
 
-      <div class="login__inputBx">
-        <%= f.label :password, t('.new_password'), {class: 'login__label'} %>
+      <div class="login_inputBx">
+        <%= f.label :password, t('.new_password') %>
         <%= f.password_field :password,
                               autocomplete: "off",
                               minlength: @minimum_password_length,
@@ -19,23 +19,23 @@
           <small class="form-text text-muted"><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></small>
         <% end %>
         <% if @user.errors.include?(:password) %>
-          <p class="login__form-error"><%= @user.errors.full_messages_for(:password).first %>
+          <p class="login_form-error"><%= @user.errors.full_messages_for(:password).first %>
         <% end %>
       </div>
 
-      <div class="login__inputBx">
-        <%= f.label :password_confirmation, t('.confirm_new_password'), {class: 'login__label'} %>
+      <div class="login_inputBx">
+        <%= f.label :password_confirmation, t('.confirm_new_password') %>
         <%= f.password_field :password_confirmation,
                               autocomplete: "off",
                               minlength: @minimum_password_length,
                               maxlength: '20'
         %>
         <% if @user.errors.include?(:password_confirmation) %>
-          <p class="login__form-error"><%= @user.errors.full_messages_for(:password_confirmation).first %>
+          <p class="login_form-error"><%= @user.errors.full_messages_for(:password_confirmation).first %>
         <% end %>
       </div>
 
-      <div class="login__inputBx">
+      <div class="login_inputBx">
         <%= f.submit t('.change_my_password') %>
       </div>
     <% end %>

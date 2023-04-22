@@ -8,7 +8,7 @@
     <% @tweet.each do |recipe| %>
       <div class="col-md-4 mb-4">
         <div class="card">
-          <div class="tweet__info" style="margin-top: 15px;margin-left: 15px;">
+          <div class="tweet_info" style="margin-top: 15px;margin-left: 15px;">
             <%= link_to image_tag(recipe.user.avatar.url, class:"list__user-img rounded-circle"), user_path(id: recipe.user_id) %>
             <%= link_to recipe.user.name ,user_path(id: recipe.user_id) %>
           </div>
@@ -18,7 +18,7 @@
           <div style="margin-left: 15px;">
             <%= link_to recipe.title, recipe_path(id: recipe.id) %>
           </div>
-          <div class="tweet__description" style="margin-bottom: 15px;margin-left: 15px;">
+          <div class="tweet_description" style="margin-bottom: 15px;margin-left: 15px;">
             <%= recipe.description %>
           </div>
           <%= link_to recipe_path(recipe) do %>
@@ -28,13 +28,13 @@
           <% end %>
           <div class="card-body">
             <section class="tag">
-              <div class="tag__container">
+              <div>
                 <% recipe.tags.each do |tag| %>
                   <%= tag.name %>
                 <% end %>
               </div>
             </section>
-            <div class="tweet__reaction">
+            <div class="tweet_reaction">
               <%= link_to recipe_path(id: recipe.id) do %>
                 <i class="far fa-comment"></i>
                 <span><%= recipe.comments.length %></span>

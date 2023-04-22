@@ -1,13 +1,13 @@
 <section class="login">
-  <div class="login__imgBx">
+  <div class="login_imgBx">
     <%= image_tag 'introduction.jpg' %>
   </div>
-  <div class="login__contentBx">
-    <div class="login__formBx">
-      <div class="login__title">アカウント確認</div>
+  <div class="login_contentBx">
+    <div class="login_formBx">
+      <div class="login_title">アカウント確認</div>
       <%= render 'layouts/notifications' %>
       <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-        <div class="login__inputBx">
+        <div class="login_inputBx">
           <%= f.label :email, {class: 'login__label'} %>
           <%= f.email_field :email,
                             autofocus: true,
@@ -15,8 +15,7 @@
                             maxlength: '30',
                             value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
         </div>
-
-        <div class="login__inputBx">
+        <div class="login_inputBx">
           <%= f.submit "確認メールを再送" %>
         </div>
       <% end %>
