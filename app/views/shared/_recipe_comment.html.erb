@@ -1,10 +1,10 @@
 <section class="comment">
-  <div class="comment__count">
+  <div class="comment_count">
     コメント<%= comments.where(reply_comment: nil).length %>件
   </div>
   <%= render "comments/comment", comments: comments %>
   <% if user_signed_in? %>
-    <div class="comment__form">
+    <div class="comment_form">
       <%= render 'comments/form' %>
     </div>
   <% end %>

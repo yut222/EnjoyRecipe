@@ -1,23 +1,23 @@
 <div class="nested-fields row my-4" style="width: 100% !important; align-items: center">
   <div class="col-md-10 step" style="width: 100%;">
-    <%= f.text_area :direction, class:"form-control introduction"%>  <!--手順-->
+    <%= f.text_area :direction, class:"form-control"%>  <!--手順-->
   </div>
 
   <div class="col-md-1 mt-2">
     <%= image_tag f.object.image.url, size: "80x80" %>  <!--手順画像-->
   </div>
 
-  <div class="col-md-1 step__form-img">
+  <div class="col-md-1">
     <%= link_to_remove_association f, class: 'btn btn-default' do %>
       <i class="fa-solid fa-trash-can" style="color: #000000;"></i>  <!--ゴミ箱アイコン-->
     <% end %>
   </div>
 
-  <div class="step__file-input">
+  <div class="step_file-input">
     <% if current_page?(controller:"recipes", action: "new") %>
-      &emsp;<span class="step__file-label">手順の画像：</span><%= f.file_field :image, accept: "image/jpeg,image/gif,image/png", id: "step-image" %>
+      &emsp;<span class="step_file-label">手順の画像：</span><%= f.file_field :image, accept: "image/jpeg,image/gif,image/png", id: "step-image" %>
     <% else %>
-      &emsp;<span class="step__file-label">変更後の画像：</span><%= f.file_field :image, accept: "image/jpeg,image/gif,image/png", id: "step-image" %>
+      &emsp;<span class="step_file-label">変更後の画像：</span><%= f.file_field :image, accept: "image/jpeg,image/gif,image/png", id: "step-image" %>
     <% end %>
   </div>
 </div>

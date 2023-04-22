@@ -1,15 +1,15 @@
 <% @users.each do |user| %>
   <div class="col-md-6 mb-4">
-    <%= link_to(user_path(id: user.id), class: "user-list__item") do %>
+    <%= link_to(user_path(id: user.id)) do %>
       <div class="card">
         <div class="recipelist__flex">
           <%= image_tag user.avatar.url, class:'rounded-circle mt-3 mb-3 ml-3', size:"100x100" %>  <!--ユーザー画像-->
           <div class="card-body">
-            <div class="user-list__detail">
-              <div class="user-list__name">
+            <div class="user-list_detail">
+              <div class="user-list_name">
                 <%= user.name %>  <!--ユーザー名-->
               </div>
-              <div class="user-list__count">
+              <div class="user-list_count">
                 レシピ投稿数: <%= user.recipes.length %>  <!--レシピ投稿数-->
               </div>
             </div>

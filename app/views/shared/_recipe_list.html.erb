@@ -5,10 +5,10 @@
         <%= link_to image_tag(recipe.image.url,class:"list__img mr-2"), recipe_path(recipe) %>  <!--レシピ画像-->
         <div class="card-body">
           <span class="timestamp"><%= recipe.created_at.to_s(:datetime_jp) %></span><br>  <!--日付-->
-          <%= link_to recipe.title, recipe_path(recipe), class: 'list__recipetitle' %>  <!--タイトル-->
-          <div class="list__description"><%= recipe.description %></div>  <!--サブタイトル-->
+          <%= link_to recipe.title, recipe_path(recipe) %>  <!--タイトル-->
+          <div class="list_description"><%= recipe.description %></div>  <!--サブタイトル-->
         </div>
-        <div class="list__info">
+        <div class="list_info">
           <div id="recipe_<%= recipe.id %>">
             <%= render partial: "recipes/favorite", locals: { recipe: recipe } %>
           </div>

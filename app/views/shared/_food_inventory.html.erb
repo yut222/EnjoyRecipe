@@ -8,10 +8,10 @@
           </div>
           <div class="card-body">
             <%= link_to inventory.name, inventory_path(inventory.id) %>  <!--食材名-->
-            <div class="inventory__content d-flex">
-              <span class="inventory__count mr-4"><%= inventory.days_left %></span>  <!--賞味期限までの日数-->
-              <div class="inventory__quantity mr-4">
-                <span class="inventory__count"><%= inventory.quantity %>個</span>  <!--在庫数-->
+            <div class="inventory_content d-flex">
+              <span class="inventory_count mr-4"><%= inventory.days_left %></span>  <!--賞味期限までの日数-->
+              <div class="inventory_quantity mr-4">
+                <span class="inventory_count"><%= inventory.quantity %>個</span>  <!--在庫数-->
               </div>
               <%= link_to inventory_path(id: inventory.id), method: :delete, data: { confirm: '削除してよろしいですか？' } do %>
                 <i class="fa-solid fa-trash-can" style="color: #000000;"></i>  <!--ゴミ箱-->

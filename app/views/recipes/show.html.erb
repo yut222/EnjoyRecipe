@@ -8,7 +8,7 @@
           <%= image_tag @recipe.image.url, class: "description__img" %>
           <div class="card-body">
             <%= @recipe.title %>
-            <div class="description__detail">
+            <div class="description_detail">
               <%= @recipe.description %>
             </div>
             <div id="recipe_<%= @recipe.id %>">
@@ -23,7 +23,7 @@
           <div class="d-flex justify-content-center">
             <%= link_to image_tag(@recipe.user.avatar.url, size: "150x150", class:'rounded-circle'), user_path(id: @recipe.user_id) %>
           </div>
-          <%= link_to @recipe.user.name, user_path(id: @recipe.user_id), class:"d-flex justify-content-center recipeuser__name mt-3 mb-3" %>
+          <%= link_to @recipe.user.name, user_path(id: @recipe.user_id), class:"d-flex justify-content-center mt-3 mb-3" %>
           <div>
             <% if user_signed_in? && @recipe.user == current_user %>
               <%= link_to 'レシピ編集', edit_recipe_path, class:'d-flex justify-content-center mt-4 btn btn-outline-success',data: {"turbolinks"=>false} %>
@@ -53,7 +53,7 @@
           <div class="cooking-title mb-2">＊関連タグ＊</div>
           <div class="ingredient__line mb-2">  <!--ボーダーラインccs-->
             <% if @recipe.tags.empty? %>
-              <p class="tag__none">関連タグが設定されていません</p>
+              <p class="tag_none">関連タグが設定されていません</p>
             <% else %>
               <% @recipe.tags.each do |tag| %>
                 <%= tag.name %>
