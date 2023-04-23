@@ -37,6 +37,6 @@ job_type :rake, 'cd :path && export PATH=/usr/local/bin:$PATH &&
 
 
 # every 1.minute do
-every 1.day, at: '3:00 pm' do  # 日本時間毎日0時に実行(システム上アメリカ時間になるため時間の表示はこのままでOK)
+every 1.day, at: '18:00 pm' do  # 日本時間毎日6時に実行(システム上アメリカ時間になるため時間の表示はこのままでOK)
   rake 'expired_at_sendmail:mail_expiration_stock'
 end
