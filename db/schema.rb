@@ -41,8 +41,8 @@ ActiveRecord::Schema.define(version: 2023_03_22_115058) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.bigint "user", null: false
-    t.bigint "recipe", null: false
+    t.bigint "user_id", null: false
+    t.bigint "recipe_id", null: false
     t.text "content", null: false
     t.integer "comments"
     t.integer "reply_comment"
@@ -84,7 +84,7 @@ ActiveRecord::Schema.define(version: 2023_03_22_115058) do
   end
 
   create_table "ingredients", force: :cascade do |t|
-    t.bigint "recipe", null: false
+    t.bigint "recipe_id", null: false
     t.string "content", null: false
     t.string "quantity", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -104,14 +104,14 @@ ActiveRecord::Schema.define(version: 2023_03_22_115058) do
   end
 
   create_table "recipe_tag_relations", force: :cascade do |t|
-    t.bigint "recipe", null: false
-    t.bigint "tag", null: false
+    t.bigint "recipe_id", null: false
+    t.bigint "tag_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "recipes", force: :cascade do |t|
-    t.bigint "user", null: false
+    t.bigint "user_id", null: false
     t.string "title"
     t.string "image"
     t.text "description"

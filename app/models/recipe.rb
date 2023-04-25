@@ -55,4 +55,6 @@ class Recipe < ApplicationRecord
     ["comments", "favorites", "ingredients", "recipe_tag_relations", "steps", "tags", "user"]
   end
 
+
+
 end
