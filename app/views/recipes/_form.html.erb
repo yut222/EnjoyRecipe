@@ -3,23 +3,34 @@
 <main>
   <%= form_with(model: @recipe, local: true) do |f| %>
     <div class="row my-4">
-      <div class="col-md-7">
+      <div class="col-md-6">
         <%= f.hidden_field :image_cache %>
-        <div class="cooking-title">写真</div>
-        <label class="img-file">
-          <i class="fa-solid fa-camera" style="color: #000000;"></i>
-          <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png" %>
-        </label>
-        <div class="description__img">
-          <%= image_tag recipe.image.url, size: "400x300" %>
+        <div class="row">
+          <div class="col cooking-title">写真</div>
         </div>
-        <% unless current_page?(controller:"recipes", action: "new") %>
-          <div class="description_remove-img-label">
-            <%= f.check_box :remove_image %>
-            <%= f.label :remove_image %>
+        <div class="row mt-1">
+          <label class="col-1 img-file pr-0">
+            <i class="fa-solid fa-camera pt-2 pr-2" style="color: #000000;"></i>
+          </label>
+          <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png", class: 'col-11 px-1' %>
+        </div>
+        <div class="row">
+          <div class="col-md-1"></div>
+          <div class="col-md-7">
+            <div class="description__img">
+              <%= image_tag recipe.image.url, class: 'img-fluid' %>
+            </div>
+            <% unless current_page?(controller:"recipes", action: "new") %>
+              <div class="description_remove-img-label">
+                <%= f.check_box :remove_image %>
+                <%= f.label :remove_image %>
+              </div>
+            <% end %>
           </div>
-        <% end %>
+          <div class="col-md-1"></div>
+        </div>
       </div>
+
       <div class="col-md-5 px-sm-0">
         <div class="text-left mt-2 mb-3">
           <h3>レシピについて</h3>

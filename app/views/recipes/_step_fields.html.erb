@@ -3,21 +3,18 @@
     <%= f.text_area :direction, class:"form-control"%>  <!--手順-->
   </div>
 
-  <div class="col-md-1 mt-2">
+  <div class="col-md-2 mt-2">
     <%= image_tag f.object.image.url, size: "80x80" %>  <!--手順画像-->
-  </div>
-
-  <div class="col-md-1">
     <%= link_to_remove_association f, class: 'btn btn-default' do %>
       <i class="fa-solid fa-trash-can" style="color: #000000;"></i>  <!--ゴミ箱アイコン-->
     <% end %>
   </div>
 
-  <div class="step_file-input">
+  <div class="row step_file-input">
     <% if current_page?(controller:"recipes", action: "new") %>
-      &emsp;<span class="step_file-label">手順の画像：</span><%= f.file_field :image, accept: "image/jpeg,image/gif,image/png", id: "step-image" %>
+      &emsp;<span class="col-auto step_file-label pt-1 pr-0">手順の画像：</span><%= f.file_field :image, accept: "image/jpeg,image/gif,image/png", id: "step-image", class: "col pl-0" %>
     <% else %>
-      &emsp;<span class="step_file-label">変更後の画像：</span><%= f.file_field :image, accept: "image/jpeg,image/gif,image/png", id: "step-image" %>
+      &emsp;<span class="col-auto step_file-label pt-1 pr-0">変更後の画像：</span><%= f.file_field :image, accept: "image/jpeg,image/gif,image/png", id: "step-image", class: "col pl-0" %>
     <% end %>
   </div>
 </div>
