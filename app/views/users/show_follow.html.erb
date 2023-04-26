@@ -1,16 +1,21 @@
 <div class="container">
-  <div class="px-sm-0 mt-4 mb-4">
-    <h3><%= @title %></h3>
+  <div class="row">
+    <div class="col-md-12 mt-4 mb-3">
+      <h3><%= @title %></h3>
+    </div>
   </div>
   <div class="row">
-    <% if @users.any? %>
-      <%= render 'shared/user-list' %>
-    <% else %>
-      <p class="notthing"><%= @message %></p>
-    <% end %>
-    <div class="col-md-12 justify-content-center d-flex mb-4">
-      <%= paginate @users %>
+    <div class="col-md-4 mb-4">
+      <% if @users.any? %>
+        <%= render 'shared/user-list' %>
+      <% else %>
+        <p class="notthing"><%= @message %></p>
+      <% end %>
+      <div class="col-md-12 justify-content-center d-flex mb-4">
+        <%= paginate @users %>
+      </div>
+
+      <%= link_to "マイページに戻る", @user, class: "btn btn-outline-primary mb-4" %>
     </div>
-    <%= link_to "マイページに戻る", @user, class: "btn btn-outline-primary mb-4" %>
   </div>
 </div>
