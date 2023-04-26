@@ -3,7 +3,7 @@
 <main>
   <%= form_with(model: @recipe, local: true) do |f| %>
     <div class="row my-4">
-      <div class="col-md-6">
+      <div class="col-md-6 mr-3">
         <%= f.hidden_field :image_cache %>
         <div class="row">
           <div class="col cooking-title">写真</div>
@@ -14,21 +14,15 @@
           </label>
           <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png", class: 'col-11 px-1' %>
         </div>
-        <div class="row">
-          <div class="col-md-1"></div>
-          <div class="col-md-7">
-            <div class="description__img">
-              <%= image_tag recipe.image.url, class: 'img-fluid' %>
-            </div>
-            <% unless current_page?(controller:"recipes", action: "new") %>
-              <div class="description_remove-img-label">
-                <%= f.check_box :remove_image %>
-                <%= f.label :remove_image %>
-              </div>
-            <% end %>
-          </div>
-          <div class="col-md-1"></div>
+        <div class="description__img">
+          <%= image_tag recipe.image.url, class: 'img-fluid' %>
         </div>
+        <% unless current_page?(controller:"recipes", action: "new") %>
+          <div class="description_remove-img-label">
+            <%= f.check_box :remove_image %>
+            <%= f.label :remove_image %>
+          </div>
+        <% end %>
       </div>
 
       <div class="col-md-5 px-sm-0">
