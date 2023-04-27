@@ -4,15 +4,16 @@
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
 // トップのスライダー画像 //
-.slider__img {
-  width: 100%;
-  height: 100%;
-}
+// .slider__img .inventory__photo {
+//   width: 100%;
+//   height: 100%;
+// }
 
 // 在庫一覧  // 上と統合したい //
 .inventory__photo {
   width: 100%;
-  height: 100%;
+  height: 200px;
+  object-fit: cover;
 }
 
 // コメントのユーザ画像  //
@@ -21,10 +22,10 @@
 }
 
 // レシピ詳細画像 //
-// .description__img {
-//   width: 100%;
-//   height: 100%;
-// }
+.description__img {
+  width: 100%;
+  height: 100%;
+}
 
 //ログイン・新規登録・ユーザ編集の左側画像 //
 .introduction__img {
