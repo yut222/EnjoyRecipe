@@ -26,7 +26,7 @@ require File.expand_path(File.dirname(__FILE__) + '/environment')
 rails_env = ENV['RAILS_ENV'] || :development
 
 # cronを実行する環境変数をセット
-set :environment, rails_env
+set :environment, :production
 
 # cronのログの吐き出し場所
 set :output, "#{Rails.root}/log/cron.log"
@@ -36,7 +36,7 @@ job_type :rake, 'cd :path && export PATH=/usr/local/bin:$PATH &&
   :environment_variable=:environment bundle exec rake :task --silent :output'
 
 
- every 1.minute do
+every 1.minute do
 # every 1.day, at: '21:00 pm' do  # 日本時間毎日朝6時に実行(システム上アメリカ時間になるため時間の表示はこのままでOK)
   rake 'expired_at_sendmail:mail_expiration_stock'
 end
